@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicPro</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<style>
+    .gradient-text {
+        background: linear-gradient(90deg, #ff00ff, #007bff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 8px;
+    }
+
+    .parent img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+        object-fit: cover;
+    }
+
+    .div3 {
+        grid-row: span 3/ span 3;
+        grid-column: 1;
+        grid-row-start: 2;
+    }
+
+    .div4 {
+        grid-row: span 2/ span 2;
+        grid-column-start: 2;
+    }
+
+    .div5 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 2;
+        grid-row-start: 3;
+    }
+
+    .div6 {
+        grid-row: span 5 / span 5;
+        grid-column-start: 3;
+    }
+
+    .div7 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 4;
+    }
+
+    .div8 {
+        grid-row: span 2 / span 2;
+        grid-column-start: 4;
+        grid-row-start: 4;
+    }
+
+    .div9 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 5;
+        grid-row-start: 2;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .parent {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .div3,
+        .div5,
+        .div6,
+        .div7,
+        .div9 {
+            grid-row: span 2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .parent {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .div3,
+        .div5,
+        .div6,
+        .div7,
+        .div9 {
+            grid-row: span 1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .parent {
+            grid-template-columns: 1fr;
+        }
+
+        .parent div {
+            grid-row: span 1;
+        }
+    }
+</style>
+
+<body>
+    <header class="container-fluid py-3 px-lg-5 d-flex justify-content-between align-items-center bg-white">
+        <div class="d-flex align-items-center">
+            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-auto" style="height: 45px;">
+            <span class="fs-4 fw-bold ms-2 text-primary">MicPro</span>
+        </div>
+        <nav class="d-none d-md-flex gap-4">
+            <a href="#" class="text-dark text-decoration-none  position-relative">Home</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Services
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">Web Development</a></li>
+                    <li><a class="dropdown-item " href="#">SEO Optimization</a></li>
+                    <li><a class="dropdown-item " href="#">Marketing</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Expertise
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">AI & ML</a></li>
+                    <li><a class="dropdown-item " href="#">Cloud Computing</a></li>
+                    <li><a class="dropdown-item " href="#">Cyber Security</a></li>
+                </ul>
+            </div>
+
+            <a href="#" class="text-dark text-decoration-none ">Cases</a>
+            <a href="#" class="text-dark text-decoration-none ">Pricing</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle text-decoration-none " type="button"
+                    data-bs-toggle="dropdown">
+                    Company
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">About Us</a></li>
+                    <li><a class="dropdown-item " href="#">Careers</a></li>
+                    <li><a class="dropdown-item " href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Nút mở menu trên mobile -->
+        <button class="btn btn-primary rounded-pill px-4 py-2 d-none d-md-block fw-bold">Start a Project</button>
+        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list text-primary fs-3"></i>
+        </button>
+
+        <!-- Menu offcanvas cho mobile -->
+        <div class="offcanvas offcanvas-end" id="mobileMenu">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-primary fw-bold">MicPro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav class="d-flex flex-column gap-3">
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Home</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Services</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Expertise</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Cases</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Pricing</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Company</a>
+                    <button class="btn btn-primary w-100 rounded-pill fw-bold">Order Now</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="text-center py-12">
+        <h1 class="text-4xl md:text-5xl font-bold">
+            Shop the Best
+            <span class="gradient-text">Styles</span> <br>
+            in One Place
+        </h1>
+
+        <!-- Image Grid -->
+        <div class="parent mt-5">
+            <div class="div3"><img src="assets/images/anh1.jpg" alt="" style="width: 220px; height: 223px;"></div>
+            <div class="div4"><img src="assets/images/anh2.jpg" alt="" style="width: 220px; height: 145px;"></div>
+            <div class="div5"><img src="assets/images/anh3.jpg" alt="" style="width: 220px; height: 224px;"></div>
+            <div class="div6"><img src="assets/images/anh4.jpg" alt="" style="width: 254px; height: 490px;"></div>
+            <div class="div7"><img src="assets/images/anh5.jpg" alt="" style="width: 220px; height: 224px;"></div>
+            <div class="div8"><img src="assets/images/anh6.jpg" alt="" style="width: 220px; height: 145px;"></div>
+            <div class="div9"><img src="assets/images/anh8.jpg" alt="" style="width: 220px; height: 223px;"></div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -6,571 +6,651 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicPro</title>
     <link rel="icon" type="image/png" href="/assets/images/logo.png">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-gradient-to-br from-blue-100 via-white to-pink-200 min-h-screen flex flex-col items-center">
-    <header class="w-full flex justify-between items-center px-20 py-5">
-        <div class="flex items-center">
-            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-8 w-auto">
-            <span class="text-lg font-bold ml-2">MicPro</span>
+<body>
+    <header class="container-fluid py-3 px-lg-5 d-flex justify-content-between align-items-center bg-white">
+        <div class="d-flex align-items-center">
+            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-auto" style="height: 45px;">
+            <span class="fs-4 fw-bold ms-2 text-primary">MicPro</span>
         </div>
-        <nav class="hidden md:flex space-x-6">
-            <a href="#" class="text-gray-700 hover:text-black">Home</a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
+        <nav class="d-none d-md-flex gap-4">
+            <a href="#" class="text-dark text-decoration-none fw-semibold position-relative">Home</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     Services
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                 </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Web Development</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">SEO Optimization</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Marketing</a>
-                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Web Development</a></li>
+                    <li><a class="dropdown-item" href="#">SEO Optimization</a></li>
+                    <li><a class="dropdown-item" href="#">Marketing</a></li>
+                </ul>
             </div>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     Expertise
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                 </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">AI & ML</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Cloud Computing</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Cyber Security</a>
-                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">AI & ML</a></li>
+                    <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
+                    <li><a class="dropdown-item" href="#">Cyber Security</a></li>
+                </ul>
             </div>
-            <a href="#" class="text-gray-700 hover:text-black">Cases</a>
-            <a href="#" class="text-gray-700 hover:text-black">Pricing</a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
+
+            <a href="#" class="text-dark text-decoration-none fw-semibold">Cases</a>
+            <a href="#" class="text-dark text-decoration-none fw-semibold">Pricing</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     Company
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                 </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">About Us</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Careers</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Contact</a>
-                </div>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                    <li><a class="dropdown-item" href="#">Careers</a></li>
+                    <li><a class="dropdown-item" href="#">Contact</a></li>
+                </ul>
             </div>
         </nav>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Start a Project</button>
+
+        <!-- Nút mở menu trên mobile -->
+        <button class="btn btn-primary rounded-pill px-4 py-2 d-none d-md-block">Start a Project</button>
+        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list text-primary fs-3"></i>
+        </button>
+
+        <!-- Menu offcanvas cho mobile -->
+        <div class="offcanvas offcanvas-end" id="mobileMenu">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-primary">MicPro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav class="d-flex flex-column gap-3">
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Home</a>
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Services</a>
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Expertise</a>
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Cases</a>
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Pricing</a>
+                    <a href="#" class="text-dark text-decoration-none fw-semibold">Company</a>
+                    <button class="btn btn-primary w-100 rounded-pill">Order Now</button>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main class="text-center mt-20 px-5">
-        <h1 class="text-4xl md:text-6xl font-bold">Build Your Dream <br> Website with Our Skilled</h1>
-        <h2 class="text-4xl md:text-6xl font-bold"><span class="text-pink-500">Development</span><span
-                class="text-blue-600"> Team</span></h2>
-        <p class="text-gray-700 mt-4">Are you looking for a way to close all marketing, technical and customer <br>
-            support tasks for your company in one place</p>
-        <div class="mt-6 flex justify-center space-x-4">
-            <button class="bg-blue-600 text-white px-6 py-3 rounded-full">Get Started →</button>
-            <button class="border border-black px-6 py-3 rounded-full">Pricing</button>
+    <main class="text-center mt-5 px-3">
+        <h1 class="fw-bold display-4">
+            Build Your Dream <br> Website with Our Skilled
+        </h1>
+        <h2 class="fw-bold display-4">
+            <span class="text-development">Development</span>
+            <span class="text-primary"> Team</span>
+        </h2>
+        <p class="text-muted mt-3">
+            Are you looking for a way to close all marketing, technical and customer <br>
+            support tasks for your company in one place?
+        </p>
+        <div class="mt-4 d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-primary px-4 py-2">Get Started →</a>
+            <a href="#" class="btn btn-outline-dark px-4 py-2 rounded-5">Pricing</a>
         </div>
     </main>
 
-    <section class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <img src="https://placehold.co/80x80" alt="Discover, Explore the Product" class="mx-auto mb-4">
-                    <h3 class="text-lg font-semibold">Discover, Explore the Product</h3>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <img src="https://placehold.co/80x80" alt="Discover, Explore the Product" class="mb-3">
+                    <h3 class="fs-5 fw-semibold">Discover, Explore the Product</h3>
                 </div>
-                <div>
-                    <img src="https://placehold.co/80x80" alt="Product UX, Design & Development" class="mx-auto mb-4">
-                    <h3 class="text-lg font-semibold">Product UX, Design & Development</h3>
+                <div class="col-md-3">
+                    <img src="https://placehold.co/80x80" alt="Product UX, Design & Development" class="mb-3">
+                    <h3 class="fs-5 fw-semibold">Product UX, Design & Development</h3>
                 </div>
-                <div>
-                    <img src="https://placehold.co/80x80" alt="Art Direction & Brand Strategy" class="mx-auto mb-4">
-                    <h3 class="text-lg font-semibold">Art Direction & Brand Strategy</h3>
+                <div class="col-md-3">
+                    <img src="https://placehold.co/80x80" alt="Art Direction & Brand Strategy" class="mb-3">
+                    <h3 class="fs-5 fw-semibold">Art Direction & Brand Strategy</h3>
                 </div>
-                <div>
-                    <img src="https://placehold.co/80x80" alt="Marketing Strategy & SEO Campaigns" class="mx-auto mb-4">
-                    <h3 class="text-lg font-semibold">Marketing Strategy & SEO Campaigns</h3>
+                <div class="col-md-3">
+                    <img src="https://placehold.co/80x80" alt="Marketing Strategy & SEO Campaigns" class="mb-3">
+                    <h3 class="fs-5 fw-semibold">Marketing Strategy & SEO Campaigns</h3>
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <h2 class="text-2xl md:text-3xl font-bold">
-                More than
-                <span class="text-blue-600">
-                    80,000+
-                </span>
-                companies trust Micpro
+        <div class="text-center mt-5">
+            <h2 class="fs-3 fw-bold">
+                More than <span class="text-primary">80,000+</span> companies trust Micpro
             </h2>
-            <div class="flex justify-center space-x-8 mt-8">
-                <img alt="Slack logo" height="40"
-                    src="https://storage.googleapis.com/a1aa/image/5VAGrZAHq0FpEB9ZDRD1N4JFFqKnrsfAfJlFJQEngnQ.jpg"
-                    width="100" />
-                <img alt="Amazon logo" height="40"
-                    src="https://storage.googleapis.com/a1aa/image/1Sr87edpNWQadhJRggUzvzJtxHOyeMeVv5FFiMgBRuo.jpg"
-                    width="100" />
-                <img alt="Google logo" height="40"
-                    src="https://storage.googleapis.com/a1aa/image/5hURI0QXNSLm3yxX3oj2nyMznCi0rHua7wNRxllTsUU.jpg"
-                    width="100" />
-                <img alt="McUndies logo" height="40"
-                    src="https://storage.googleapis.com/a1aa/image/kl4LTEEfnERQx0Tdu7az8GUBNdQAVSh7JAcO0LbKogc.jpg"
-                    width="100" />
-                <img alt="Stripe logo" height="40"
-                    src="https://storage.googleapis.com/a1aa/image/joqDao91jpg7R6KnRGLJjOv8mXNjktS1v7CwDWwwDBQ.jpg"
-                    width="100" />
+            <div class="d-flex justify-content-center">
+                <img alt="Slack logo" height="40" src="assets/images/Vector.png" width="100">
+                <img alt="Amazon logo" height="40" src="assets/images/Union.png" width="100">
+                <img alt="Google logo" height="40" src="assets/images/Union (1).png" width="100">
+                <img alt="McUndies logo" height="40" src="assets/images/Company logo.png" width="100">
+                <img alt="Stripe logo" height="40" src="assets/images/Company logo (1).png" width="100">
             </div>
         </div>
     </section>
 
-    <section class="portfolio">
-        <div class="portfolio">
-            <div class="portfolio-item">
-                <div class="text-content">
-                    <p class="category">MOBILE APP, WEATHER, SOFTWARE</p>
-                    <h2>Weather App UI Kit - WETHY</h2>
-                    <p class="description">Hello Designers! This is the video calling website landing page design
-                        concept.</p>
-                    <a href="#" class="view-portfolio">VIEW PORTFOLIO</a>
+    <section class="portfolio py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5 d-flex align-items-center" style="text-align: left;">
+                    <div>
+                        <p class="text-secondary fw-semibold">Mobile app, Weather, Software</p>
+                        <h3 class="fw-bold">Weather App UI Kit <br>
+                            - WETHY </h3>
+                        <p class="text-muted" style="width: 400px;">Hello Designers! This is the video calling
+                            website
+                            landing page design
+                            concept. Video calling software is very popular nowadays.</p>
+                        <p style="font-size: 18px; line-height: 24px; letter-spacing: 10px;">VIEW PORTFOLIO</p>
+                    </div>
                 </div>
-                <div class="image-content">
-                    <img src="weather-app.png" alt="Weather App">
+                <div class="col-md-7">
+                    <img src="assets/images/a1.png" alt="Weather App" class="img-fluid" style="width: 900px;">
                 </div>
-            </div>
 
-            <div class="portfolio-item">
-                <div class="image-content">
-                    <img src="video-call.png" alt="Video Calling App">
+                <div class="col-md-8">
+                    <img src="assets/images/a2.png" alt="Video Calling App" class="img-fluid" style="width: 900px;">
                 </div>
-                <div class="text-content">
-                    <p class="category">WEB DESIGN, VIDEO CALL, SOFTWARE</p>
-                    <h2>Video Calling Website - Jabber</h2>
-                    <p class="description">WEATHY is a modern and clean mobile app project based on the weather app UI
-                        kit.</p>
-                    <a href="#" class="view-portfolio">VIEW PORTFOLIO</a>
+                <div class="col-md-4 d-flex align-items-center" style="text-align: right;">
+                    <div>
+                        <p class="text-uppercase text-secondary fw-semibold">Web Design, Video call, Software</p>
+                        <h3 class="fw-bold">Video Calling Website - Jabber</h3>
+                        <p class="text-muted">WEATHY is a modern and clean mobile app project based on the weather app.
+                            The UI Kit gives you the necessary screens for creating stunning iOS screens and applying
+                            them to any weather app.</p>
+                        <p style="font-size: 18px; line-height: 24px; letter-spacing: 10px;">VIEW PORTFOLIO</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="portfolio-item">
-                <div class="text-content">
-                    <p class="category">WEB APP, SOFTWARE, CAR DASHBOARD</p>
-                    <h2>Car Dashboard UI Kit Design</h2>
-                    <p class="description">Motik is a Free Car Dashboard UI Kit Design of 29+ perfect screens.</p>
-                    <a href="#" class="view-portfolio">VIEW PORTFOLIO</a>
-                </div>
-                <div class="image-content">
-                    <img src="car-dashboard.png" alt="Car Dashboard UI">
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="image-content">
-                    <img src="video-call.png" alt="Video Calling App">
-                </div>
-                <div class="text-content">
-                    <p class="category">WEB DESIGN, VIDEO CALL, SOFTWARE</p>
-                    <h2>Video Calling Website - Jabber</h2>
-                    <p class="description">WEATHY is a modern and clean mobile app project based on the weather app UI
-                        kit.</p>
-                    <a href="#" class="view-portfolio">VIEW PORTFOLIO</a>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Explore our core <span class="text-blue-600">Expertise</span>
-            </h2>
-            <p class="mt-4 text-lg text-gray-500">
-                We produce beautiful and engaging websites. Our team is mostly experienced in the design of stunning
-                interfaces, e-commerce and marketing website development, ready to work with you on your project!
-            </p>
-        </div>
-        <div class="mt-10">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-                <div class="bg-white shadow rounded-lg p-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">UI/UX Design</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-purple-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">High-quality motion design</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-purple-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Thoughtful user experience design</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-purple-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Unique user interface design for websites and apps
-                            </p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-purple-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Design concepts & strategies for MVPs</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white shadow rounded-lg p-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Webflow Design</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-orange-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">High-quality motion design</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-orange-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Thoughtful user experience design</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-orange-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Unique user interface design for websites and apps
-                            </p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-orange-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Design concepts & strategies for MVPs</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white shadow rounded-lg p-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Webflow Developer</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-blue-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Full-cycle development of powerful corporate
-                                websites and one-pagers</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-blue-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Webflow integrations with third-party services and
-                                apps</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-blue-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Migration of your designs or even ready website to
-                                Webflow CMS</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white shadow rounded-lg p-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Shopify Developer</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-pink-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Cost-effective e-commerce development</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="flex-shrink-0">
-                                <i class="fas fa-check-circle text-pink-500"></i>
-                            </span>
-                            <p class="ml-3 text-base text-gray-500">Reinvention of your online store with a strong tech
-                                stack</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="pricing-container">
-        <h1 class="text-3xl font-bold mb-4">Find the plan that fits your <span class="text-blue-600">budget</span></h1>
-        <div class="flex justify-center mb-8">
-            <button class="bg-blue-600 text-white px-4 py-2 rounded-l-full">Monthly</button>
-            <button class="bg-white text-gray-600 px-4 py-2 rounded-r-full border border-gray-300">Yearly</button>
-        </div>
-        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-            <div class="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-600">Pro</span>
-                    <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">Most popular</span>
-                </div>
-                <div class="text-4xl font-bold mb-2">$35<span class="text-lg font-normal">/Per Month</span></div>
-                <ul class="text-left text-gray-600 mb-6">
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>UI/UX
-                        Designer</li>
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>Dedicated
-                        Developer</li>
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>QA
-                        technician</li>
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>Project
-                        Manager</li>
-                    <li class="flex items-center"><i class="fas fa-check-circle text-pink-500 mr-2"></i>On time Support
-                    </li>
-                </ul>
-                <button
-                    class="bg-gradient-to-r from-purple-500 to-orange-500 text-white px-4 py-2 rounded-full w-full">Buy
-                    Now</button>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-600">Pro</span>
-                    <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">Free</span>
-                </div>
-                <div class="text-4xl font-bold mb-2">$0</div>
-                <ul class="text-left text-gray-600 mb-6">
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>UI/UX
-                        Designer</li>
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>Dedicated
-                        Developer</li>
-                    <li class="flex items-center mb-2"><i class="fas fa-check-circle text-pink-500 mr-2"></i>QA
-                        technician</li>
-                </ul>
-                <button
-                    class="bg-gradient-to-r from-purple-500 to-orange-500 text-white px-4 py-2 rounded-full w-full">Buy
-                    Now</button>
-            </div>
-        </div>
-
-        <!-- Testimonial Section -->
-        <div class="bg-white flex items-center justify-center min-h-screen">
-            <div class="w-full max-w-4xl px-4">
-                <div
-                    class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center">
-                    <div class="flex-1">
-                        <i class="fas fa-quote-left text-4xl opacity-50">
-                        </i>
-                        <p class="mt-4 text-lg leading-relaxed">
-                            Internal stakeholders were happy with the final product. The team was able to communicate
-                            their progress clearly and concisely. They took the initiative and executed the project
-                            without much supervision. Internal stakeholders were happy with the final product. The team
-                            was able to communicate their progress clearly and concisely. They took the initiative and
-                            executed the project without much supervision.
+                <div class="col-md-4 d-flex align-items-center" style="text-align: left;">
+                    <div>
+                        <p class="text-uppercase text-secondary fw-semibold">Web app, Software, Car Dashboard</p>
+                        <h3 class="fw-bold">Car Dashboard UI
+                            Kit Design </h3>
+                        <p class="text-muted">Motiv. is a Free Car Dashboard UI Kit Design of 20+ Free pixel-perfect
+                            screens and 60+ Components easy to use in Figma.
                         </p>
+                        <a href="#" class="btn btn-primary">VIEW PORTFOLIO</a>
                     </div>
-                    <div class="flex items-center mt-8 md:mt-0 md:ml-8">
-                        <div class="w-16 h-16 rounded-full overflow-hidden">
-                            <img alt="Portrait of Mitchell Marsh" height="100"
-                                src="https://storage.googleapis.com/a1aa/image/-YnJFUnnKSFw5L8f3o39VW5ObJCAlMW_KqiS1S4JQAc.jpg"
-                                width="100" />
+                </div>
+                <div class="col-md-8">
+                    <img src="assets/images/a3.png" alt="Car Dashboard UI" class="img-fluid" style="width: 900px;">
+                </div>
+
+                <div class="col-md-8">
+                    <img src="assets/images/a4.png" alt="Video Calling App" class="img-fluid " style="width: 900px;">
+                </div>
+                <div class="col-md-4 d-flex align-items-center" style="text-align: right;">
+                    <div>
+                        <p class="text-secondary fw-semibold">Web Design,
+                            Software</p>
+                        <h2 class="fw-bold">Video Editing Website
+                            - Revise </h2>
+                        <p class="text-muted">Hello Peoples! This is the Video Editing Website landing page design
+                            concept. Video editing is an essential part of a tech user.</p>
+                        <a href="#" class="btn btn-primary">VIEW PORTFOLIO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 rounded">
+        <div class="container" style="background-color: aliceblue; border-radius: 24px; padding: 40px;">
+            <div class="text-center">
+                <h2 class="fw-bold text-dark">
+                    Explore our core <span class="text-primary">Expertise</span>
+                </h2>
+                <p class="mt-3 text-muted ">
+                    We produce beautiful and engaging websites. Our team is mostly experienced in the design of stunning
+                    interfaces, e-commerce and marketing website development, ready to work with you on your project!
+                </p>
+            </div>
+            <div class="row mt-5 g-4">
+                <div class="col-md-6">
+                    <div class="card shadow-sm p-4 border-0 h-100 d-flex flex-column">
+                        <h5 class="h5 fw-bold text-dark">UI/UX Design</h5>
+                        <ul class="mt-3 list-unstyled">
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span class="text-muted">High-quality motion design</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span class="text-muted">Thoughtful user experience design</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span class="text-muted">Unique user interface design for websites and apps</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span class="text-muted">Design concepts & strategies for MVPs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm p-4 border-0 h-100 d-flex flex-column">
+                        <h5 class="h5 fw-bold text-dark">Webflow Design</h5>
+                        <ul class="mt-3 list-unstyled">
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                <span class="text-muted">High-quality motion design</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                <span class="text-muted">Thoughtful user experience design</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                <span class="text-muted">Unique user interface design for websites and apps</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-warning me-2"></i>
+                                <span class="text-muted">Design concepts & strategies for MVPs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm p-4 border-0 h-100 d-flex flex-column">
+                        <h5 class="h5 fw-bold text-dark">Webflow Developer</h5>
+                        <ul class="mt-3 list-unstyled">
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-info me-2"></i>
+                                <span class="text-muted">Full-cycle development of corporate websites</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-info me-2"></i>
+                                <span class="text-muted">Webflow integrations with third-party services</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-info me-2"></i>
+                                <span class="text-muted">Migration of your designs to Webflow CMS</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm p-4 border-0 h-100 d-flex flex-column">
+                        <h5 class="h5 fw-bold text-dark">Shopify Developer</h5>
+                        <ul class="mt-3 list-unstyled">
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-danger me-2"></i>
+                                <span class="text-muted">Cost-effective e-commerce development</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-danger me-2"></i>
+                                <span class="text-muted">Reinvention of your online store</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="budget" style="background-color: #F2F3F8;">
+        <div class="container text-center my-5 p-5">
+            <h1 class="fw-bold">Find the plan that fits your <br><span class="text-primary">budget</span></h1>
+            <div class="btn my-3" role="group">
+                <button class="btn btn-primary">Monthly</button>
+                <button class="btn btn-outline-secondary rounded-5">Yearly</button>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-7">
+                    <div class="card p-4 shadow h-100 d-flex flex-column">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-secondary">Pro</span>
+                                <span class="badge bg-primary">Most popular</span>
+                            </div>
+                            <h2 class="fw-bold">$35 <small class="text-muted">/Per Month</small></h2>
                         </div>
-                        <div class="ml-4">
-                            <p class="font-bold">
-                                Mitchell Marsh
-                            </p>
-                            <p class="text-sm">
-                                UI/UX Designer
-                            </p>
+                        <div class="card-body">
+
+                            <ul class="list-unstyled text-start text-secondary">
+                                <li><i class="fas fa-check-circle me-2"></i> UI/UX Designer</li>
+                                <li><i class="fas fa-check-circle me-2"></i> Dedicated Developer</li>
+                                <li><i class="fas fa-check-circle me-2"></i> QA technician</li>
+                                <li><i class="fas fa-check-circle me-2"></i> Project Manager</li>
+                                <li><i class="fas fa-check-circle me-2"></i> On time Support</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-gradient">Buy Now</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card p-4 shadow h-100 d-flex flex-column">
+                        <div class="card-header">
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-secondary">Pro</span>
+                                <span class="badge bg-primary">Free</span>
+                            </div>
+                            <h2 class="fw-bold">$0</h2>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-start text-secondary">
+                                <li><i class="fas fa-check-circle me-2"></i> UI/UX Designer</li>
+                                <li><i class="fas fa-check-circle me-2"></i> Dedicated Developer</li>
+                                <li><i class="fas fa-check-circle me-2"></i> QA technician</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-outline-gradient">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container bg-light p-5 mt-5 rounded">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide d-flex flex-column flex-md-row align-items-center">
+                    <div class="flex-grow-1">
+                        <i class="fas fa-quote-left fa-2x opacity-50"></i>
+                        <p class="mt-3 lead">Internal stakeholders were happy with the final product. The team was able
+                            to communicate their progress clearly and concisely. They took the initiative and executed
+                            the project without much supervision Internal stakeholders were happy with the final
+                            product. The team was able to communicate their progress clearly and concisely. They took
+                            the initiative and executed the project without much supervision</p>
+                    </div>
+                    <div class="d-flex align-items-center mt-4 mt-md-0 ms-md-4">
+                        <img src="https://storage.googleapis.com/a1aa/image/-YnJFUnnKSFw5L8f3o39VW5ObJCAlMW_KqiS1S4JQAc.jpg"
+                            class="rounded-circle me-3" width="50" height="50" alt="Mitchell Marsh">
+                        <div>
+                            <strong>Mitchell Marsh</strong>
+                            <p class="text-muted mb-0">UI/UX Designer</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-center mt-4">
-                    <span class="h-2 w-2 bg-gray-300 rounded-full mx-1">
-                    </span>
-                    <span class="h-2 w-2 bg-blue-500 rounded-full mx-1">
-                    </span>
-                    <span class="h-2 w-2 bg-gray-300 rounded-full mx-1">
-                    </span>
+                <div class="swiper-slide d-flex flex-column flex-md-row align-items-center">
+                    <div class="flex-grow-1">
+                        <i class="fas fa-quote-left fa-2x opacity-50"></i>
+                        <p class="mt-3 lead">Internal stakeholders were happy with the final product. The team was able
+                            to communicate their progress clearly and concisely. They took the initiative and executed
+                            the project without much supervision Internal stakeholders were happy with the final
+                            product. The team was able to communicate their progress clearly and concisely. They took
+                            the initiative and executed the project without much supervision</p>
+                    </div>
+                    <div class="d-flex align-items-center mt-4 mt-md-0 ms-md-4">
+                        <img src="https://storage.googleapis.com/a1aa/image/-YnJFUnnKSFw5L8f3o39VW5ObJCAlMW_KqiS1S4JQAc.jpg"
+                            class="rounded-circle me-3" width="50" height="50" alt="Mitchell Marsh">
+                        <div>
+                            <strong>Mitchell Marsh</strong>
+                            <p class="text-muted mb-0">UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide d-flex flex-column flex-md-row align-items-center">
+                    <div class="flex-grow-1">
+                        <i class="fas fa-quote-left fa-2x opacity-50"></i>
+                        <p class="mt-3 lead">Internal stakeholders were happy with the final product. The team was able
+                            to communicate their progress clearly and concisely. They took the initiative and executed
+                            the project without much supervision Internal stakeholders were happy with the final
+                            product. The team was able to communicate their progress clearly and concisely. They took
+                            the initiative and executed the project without much supervision</p>
+                    </div>
+                    <div class="d-flex align-items-center mt-4 mt-md-0 ms-md-4">
+                        <img src="https://storage.googleapis.com/a1aa/image/-YnJFUnnKSFw5L8f3o39VW5ObJCAlMW_KqiS1S4JQAc.jpg"
+                            class="rounded-circle me-3" width="50" height="50" alt="Mitchell Marsh">
+                        <div>
+                            <strong>Mitchell Marsh</strong>
+                            <p class="text-muted mb-0">UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="creative-team p-5">
+        <div class="container text-center">
+            <h2>Our Creative <span class="text-primary">Team</span></h2>
+            <div class="row p-5">
+                <div class="col-md-4">
+                    <img src="assets/images/im1.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/images/im2.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/images/im3.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="assets/images/im1.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/images/im2.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/images/im3.png" alt="">
+                    <div class="overlay p-4">
+                        <h6>STEVE THOMAS</h6>
+                        <p>WEB DEVELOPER</p>
+                        <a href="facebook"><i class="fa-brands fa-facebook" style="color: #0a5ae6;"></i></a>
+                        <a href="twiter"><i class="fa-brands fa-square-twitter" style="color: #0457e7;"></i></a>
+                        <a href="in"><i class="fa-brands fa-invision" style="color: #005af5;"></i></a>
+                        <a href="ins"><i class="fa-brands fa-instagram" style="color: #005af5;"></i></a>
+
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Team Section -->
-        <div class="container mx-auto px-4 py-8">
-            <h1 class="text-4xl font-bold text-center mb-8">
-                OUR Design
-                <span class="text-blue-500">
-                    BLOG
-                </span>
-            </h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img alt="A collage of various design elements and typography samples"
-                        class="w-full h-48 object-cover" height="400"
-                        src="https://storage.googleapis.com/a1aa/image/FrGAKugPAw-kNjD7c04NwyscgKNFDRh3BGghfKu-SfY.jpg"
-                        width="600" />
-                    <div class="p-4">
-                        <span class="bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded">
-                            Design Blog
-                        </span>
-                        <span class="text-gray-500 text-xs ml-2">
-                            Jul 12, 2022
-                        </span>
-                        <h2 class="text-lg font-semibold mt-2">
-                            15 Important Usability Principles for User Interface Design
-                        </h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img alt="A colorful abstract design with various shapes and elements"
-                        class="w-full h-48 object-cover" height="400"
-                        src="https://storage.googleapis.com/a1aa/image/MmNgTjcp19qIWEq-9QlCS-LbveuC8J3STAh7d0w6G4A.jpg"
-                        width="600" />
-                    <div class="p-4">
-                        <span class="bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded">
-                            Design Blog
-                        </span>
-                        <span class="text-gray-500 text-xs ml-2">
-                            Jul 30, 2022
-                        </span>
-                        <h2 class="text-lg font-semibold mt-2">
-                            15 Important Usability Principles for User Interface Design
-                        </h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img alt="A person working on a web design project on a laptop" class="w-full h-48 object-cover"
-                        height="400"
-                        src="https://storage.googleapis.com/a1aa/image/CcFtafVmwkYIH2NfKb90fgy0svpIe-9DCfABJryuwuk.jpg"
-                        width="600" />
-                    <div class="p-4">
-                        <span class="bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded">
-                            Design Blog
-                        </span>
-                        <span class="text-gray-500 text-xs ml-2">
-                            Jul 22, 2022
-                        </span>
-                        <h2 class="text-lg font-semibold mt-2">
-                            15 Important Usability Principles for User Interface Design
-                        </h2>
+    </section>
+
+    <section class=" container blog mb-5">
+        <h1 class="text-center my-5">OUR Design <span class="text-primary">BLOG</span></h1>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/FrGAKugPAw-kNjD7c04NwyscgKNFDRh3BGghfKu-SfY.jpg"
+                        class="card-img-top" alt="Design Blog">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-white">Design Blog</span>
+                        <span class="text-muted small">Jul 12, 2022</span>
+                        <h5 class="card-title mt-2">15 Important Usability Principles for
+                            User Interface Design</h5>
                     </div>
                 </div>
             </div>
-            <div class="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-center py-16 rounded-lg">
-                <h2 class="text-2xl font-bold mb-4">
-                    We'll take the time to understand your goals and then help you create a website that's exactly what
-                    you envisioned.
-                </h2>
-                <p class="mb-8">
-                    We believe your project is only as good as the team that's working on it. When we work with you and
-                    your team, we know there are no shortcuts to success. Your research is done; now let's get down to
-                    business!
-                </p>
-                <button
-                    class="bg-white text-blue-500 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-100 transition duration-300">
-                    Join the team
-                    <i class="fas fa-arrow-right ml-2">
-                    </i>
-                </button>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/MmNgTjcp19qIWEq-9QlCS-LbveuC8J3STAh7d0w6G4A.jpg"
+                        class="card-img-top" alt="Design Blog">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-white">Design Blog</span>
+                        <span class="text-muted small">Jul 30, 2022</span>
+                        <h5 class="card-title mt-2">15 Important Usability Principles for
+                            User Interface Design</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/CcFtafVmwkYIH2NfKb90fgy0svpIe-9DCfABJryuwuk.jpg"
+                        class="card-img-top" alt="Design Blog">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-white">Design Blog</span>
+                        <span class="text-muted small">Jul 22, 2022</span>
+                        <h5 class="card-title mt-2">15 Important Usability Principles for
+                            User Interface Design</h5>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <footer class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-between">
-                <div class="w-full md:w-1/5 mb-6 md:mb-0">
-                    <div class="flex items-center">
-                        <img src="https://placehold.co/40x40" alt="Company logo" class="mr-2">
-                        <span class="text-xl font-bold">MicPro</span>
+    </section>
+
+    <section>
+        <div class="container we-take">
+            <h3 style="width: 850px;">
+                We'll take the time to understand your goals and then help you create a website that's exactly what you
+                envisioned.
+            </h3>
+            <p style="width: 650px;">We believe your project is only as good as the team that's working on it. When we
+                work
+                with you and your
+                team, we know there are no shortcuts to success. Your research is done; now lets get down to business!
+            </p>
+            <button class="btn btn-light">
+                Join the team <i class="fa-solid fa-circle-arrow-right" style="color: #145bd7;"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-light mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/images/logo.png" alt="Company logo" class="me-2">
+                        <span class="fs-5 fw-bold">MicPro</span>
                     </div>
                 </div>
-                <div class="w-full md:w-1/5 mb-6 md:mb-0">
-                    <h5 class="font-bold mb-2">Product</h5>
-                    <ul>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Careere</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">About Us</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Insights</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">PCI Compliance</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Integrations</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Pricing</a></li>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold">Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark text-decoration-none">Careers</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Insights</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">PCI Compliance</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Integrations</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Pricing</a></li>
                     </ul>
                 </div>
-                <div class="w-full md:w-1/5 mb-6 md:mb-0">
-                    <h5 class="font-bold mb-2">For Developers</h5>
-                    <ul>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Docs</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Knowledge Base</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">System Status</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Tutorials</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Security</a></li>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold">For Developers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark text-decoration-none">Docs</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Knowledge Base</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">System Status</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Tutorials</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Security</a></li>
                     </ul>
                 </div>
-                <div class="w-full md:w-1/5 mb-6 md:mb-0">
-                    <h5 class="font-bold mb-2">Resources</h5>
-                    <ul>
-                        <li class="mb-1"><a href="#" class="text-gray-600">About</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Leadership</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Press/News</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Careers/Team</a></li>
-                        <li class="mb-1"><a href="#" class="text-gray-600">Contact Us</a></li>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Leadership</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Press/News</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Careers/Team</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="w-full md:w-1/5 mb-6 md:mb-0">
-                    <h5 class="font-bold mb-2">Subscribe</h5>
-                    <div class="flex mb-4">
-                        <input type="email" placeholder="Email address"
-                            class="p-2 border border-gray-300 rounded-l w-full">
-                        <button class="bg-purple-600 text-white p-2 rounded-r">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Subscribe</h5>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-primary" type="button">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
-                    <div>
-                        <p class="text-gray-600">8/10</p>
-                        <p class="text-gray-600">Overall rating</p>
-                        <div class="flex">
-                            <i class="fas fa-star text-yellow-500"></i>
-                            <i class="fas fa-star text-yellow-500"></i>
-                            <i class="fas fa-star text-yellow-500"></i>
-                            <i class="fas fa-star text-yellow-500"></i>
-                            <i class="fas fa-star text-gray-300"></i>
-                        </div>
+                    <p class="text-muted">8/10</p>
+                    <p class="text-muted">Overall rating</p>
+                    <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star text-secondary"></i>
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="border-t border-gray-200 mt-8 pt-8 mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex space-x-4 text-gray-600 text-sm">
-                <a href="#" class="hover:text-gray-800">Platform</a>
-                <a href="#" class="hover:text-gray-800">Products</a>
-                <a href="#" class="hover:text-gray-800">Resources</a>
-            </div>
-            <div class="text-gray-600 text-sm mt-4 md:mt-0">
-                © 2021 Besnik.com | All Rights Reserved
-            </div>
-            <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="#" class="text-gray-600 hover:text-gray-800">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="text-gray-600 hover:text-gray-800">
-                    <i class="fab fa-google-plus-g"></i>
-                </a>
-                <a href="#" class="text-gray-600 hover:text-gray-800">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="text-gray-600 hover:text-gray-800">
-                    <i class="fab fa-dribbble"></i>
-                </a>
+            <div class="border-top pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-dark text-decoration-none">Platform</a>
+                    <a href="#" class="text-dark text-decoration-none">Products</a>
+                    <a href="#" class="text-dark text-decoration-none">Resources</a>
+                </div>
+                <div class="text-muted">© 2021 Besnik.com | All Rights Reserved</div>
+                <div class="d-flex gap-3 mt-3 mt-md-0">
+                    <a href="#" class="text-dark"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-dribbble"></i></a>
+                </div>
             </div>
         </div>
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/d584f42692.js" crossorigin="anonymous"></script>
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
 </body>
 
 </html>

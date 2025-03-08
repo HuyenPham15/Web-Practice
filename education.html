@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicPro</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #fdfbfb, #ebedee);
+    }
+
+    .gradient-text {
+        background: linear-gradient(90deg, #ff00ff, #007bff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .custom-frame {
+        width: 252px;
+        height: 384px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        overflow: hidden;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .custom-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <header class="container-fluid py-3 px-lg-5 d-flex justify-content-between align-items-center bg-white">
+        <div class="d-flex align-items-center">
+            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-auto" style="height: 45px;">
+            <span class="fs-4 fw-bold ms-2 text-primary">MicPro</span>
+        </div>
+        <nav class="d-none d-md-flex gap-4">
+            <a href="#" class="text-dark text-decoration-none  position-relative">Home</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Course
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">Web Development</a></li>
+                    <li><a class="dropdown-item " href="#">SEO Optimization</a></li>
+                    <li><a class="dropdown-item " href="#">Marketing</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Mentor
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">AI & ML</a></li>
+                    <li><a class="dropdown-item " href="#">Cloud Computing</a></li>
+                    <li><a class="dropdown-item " href="#">Cyber Security</a></li>
+                </ul>
+            </div>
+
+            <a href="#" class="text-dark text-decoration-none ">Blog</a>
+            <a href="#" class="text-dark text-decoration-none ">Contact</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle text-decoration-none " type="button"
+                    data-bs-toggle="dropdown">
+                    Program
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">About Us</a></li>
+                    <li><a class="dropdown-item " href="#">Careers</a></li>
+                    <li><a class="dropdown-item " href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Nút mở menu trên mobile -->
+        <button class="btn btn-primary rounded-pill px-4 py-2 d-none d-md-block fw-bold">Sign Up</button>
+        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list text-primary fs-3"></i>
+        </button>
+
+        <!-- Menu offcanvas cho mobile -->
+        <div class="offcanvas offcanvas-end" id="mobileMenu">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-primary fw-bold">MicPro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav class="d-flex flex-column gap-3">
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Home</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Services</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Expertise</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Cases</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Pricing</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Company</a>
+                    <button class="btn btn-primary w-100 rounded-pill fw-bold">Order Now</button>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+    <main class="text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">
+                Welcome to the World of <br>
+                <span class="gradient-text">Knowledge</span>
+                <i class="fas fa-lightbulb"></i>
+            </h1>
+
+            <p class="text-secondary mt-3">
+                Let's explore new ideas, knowledge and experiences together with a beautiful teacher and enjoy it!
+            </p>
+
+            <div class="mt-4 d-flex justify-content-center gap-3">
+                <button class="btn btn-primary px-4 py-2 rounded-5">
+                    Get Started
+                </button>
+                <button class="btn btn-outline-secondary d-flex align-items-center rounded-5">
+                    <i class="fas fa-play-circle text-primary me-2"></i>
+                    <span>Watch Video</span>
+                </button>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3 d-flex justify-content-center">
+                    <div class="custom-frame bg-warning">
+                        <img src="assets/images/be1.jpg" alt="Young girl holding a book" class="custom-img" />
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex justify-content-center" style="margin-top: 130px;">
+                    <div class="custom-frame bg-secondary bg-opacity-25">
+                        <img src="https://storage.googleapis.com/a1aa/image/_0LWtox8VLMyMzsJcSzMIPEt87JPNO_2fVxbFCb3Tfo.jpg"
+                            alt="Young girl with glasses holding a pencil" class="custom-img" />
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex justify-content-center" style="margin-top: 130px;">
+                    <div class="custom-frame bg-warning">
+                        <img src="https://storage.googleapis.com/a1aa/image/GmMqYgRyZV6Gu3bUEtpW2JpyRoJi81eHWBEL7Bvv-9Q.jpg"
+                            alt="Young girl with red hair holding a book" class="custom-img" />
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex justify-content-center">
+                    <div class="custom-frame bg-danger bg-opacity-25">
+                        <img src="https://storage.googleapis.com/a1aa/image/7FMb7WU7O1MbzXv5hn_UdDHY-Yse0kdEVEEeR8W3yx4.jpg"
+                            alt="Young girl holding a pencil and a notebook" class="custom-img" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <div class="container py-5 border-5">
+        <h1 class="text-center fw-bold mb-4">
+            Browse Our Best <span class="text-primary">Courses</span>
+        </h1>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/qi1g1kGVBw0xnIafUrJpuqBlXaT9lSJgBqrEKmYPk0g.jpg"
+                        class="card-img-top" alt="Math Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Teach Your Kids Math In The Simple Way</h5>
+                        <div class="recomment d-flex">
+                            <p class="text-muted"><i class="fas fa-book me-2"></i> 42 Lessons</p>
+                            <div class="text-warning ms-auto">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/TrpAN2ZKeUqOXjboN-hX5OVwuRbi4KlAyUensp4Lg-o.jpg"
+                        class="card-img-top" alt="Coding Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn Coding in the most Easiest Way</h5>
+                        <div class="recomment d-flex">
+                            <p class="text-muted"><i class="fas fa-book me-2"></i> 42 Lessons</p>
+                            <div class="text-warning ms-auto">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/7rJpQm3xIi4zwu4JfeMn6Pd22EKX0ZsSVZJ4EAXoYXk.jpg"
+                        class="card-img-top" alt="Geography Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn Geography with Fun & Exciting Way</h5>
+                        <div class="recomment d-flex">
+                            <p class="text-muted"><i class="fas fa-book me-2"></i> 42 Lessons</p>
+                            <div class="text-warning ms-auto">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow">
+                    <img src="https://storage.googleapis.com/a1aa/image/1VnwKofLfzq7-fQ0FQn6KbG1bIRzPXIvXF0suG_GLZI.jpg"
+                        class="card-img-top" alt="English Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Kid’s English Native Spoken & Grammar</h5>
+                        <div class="recomment d-flex">
+                            <p class="text-muted"><i class="fas fa-book me-2"></i> 42 Lessons</p>
+                            <div class="text-warning ms-auto">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-light py-4">
+        <div class="container text-center">
+            <div class="d-flex align-items-center justify-content-center flex-wrap gap-4">
+                <p class="text-muted mb-0 fw-medium">Trusted By Top 100+ Companies & Universities</p>
+                <img src="https://placehold.co/100x40?text=Google" alt="Google logo" width="100" height="40">
+                <img src="https://placehold.co/100x40?text=Slack" alt="Slack logo" width="100" height="40">
+                <img src="https://placehold.co/100x40?text=Amazon" alt="Amazon logo" width="100" height="40">
+                <img src="https://placehold.co/100x40?text=HubSpot" alt="HubSpot logo" width="100" height="40">
+                <img src="https://placehold.co/100x40?text=Gusto" alt="Gusto logo" width="100" height="40">
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <h1 class="fw-bold mb-4 text-center">A Choice That Makes The <span class="text-primary">Difference</span></h1>
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="bg-white shadow-sm rounded p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle p-3">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <h2 class="h5 fw-semibold text-start">One-by-one Teaching</h2>
+                    <p class="text-muted text-start">All of our special education experts have a degree in special
+                        education</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="bg-white shadow-sm rounded p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-warning text-white rounded-circle p-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <h2 class="h5 fw-semibold text-start">24/7 Tutor Availability</h2>
+                    <p class="text-muted text-start">All of our special education experts have a degree in special
+                        education</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="bg-white shadow-sm rounded p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-danger text-white rounded-circle p-3">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <h2 class="h5 fw-semibold text-start">Interactive Whitebook</h2>
+                    <p class="text-muted text-start">All of our special education experts have a degree in special
+                        education</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="bg-white shadow-sm rounded p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-danger text-white rounded-circle p-3">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <h2 class="h5 fw-semibold text-start">Affordable Prices</h2>
+                    <p class="text-muted text-start">All of our special education experts have a degree in special
+                        education</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <!-- First Section -->
+        <div class="row bg-white shadow-sm rounded p-4 mb-4">
+            <div class="col-md-4">
+                <img src="https://storage.googleapis.com/a1aa/image/7LgX8jT9J_Qne1k-uWMY71bhzHU2KE4CvWLDoTFgJc0.jpg"
+                    class="img-fluid rounded" alt="Boy holding books">
+            </div>
+            <div class="col-md-8 d-flex flex-column justify-content-center">
+                <h1 class="fw-bold">Premium courses from the <span class="text-primary">industry</span> leaders</h1>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
+                    in eros elementum tristique.</p>
+                <div class="d-flex flex-wrap">
+                    <span class="badge bg-purple me-2 mb-2">World Class</span>
+                    <span class="badge bg-orange me-2 mb-2">Easily Learning</span>
+                    <span class="badge bg-primary me-2 mb-2">Flexible</span>
+                    <span class="badge bg-pink me-2 mb-2">Affordable</span>
+                </div>
+                <button class="btn btn-primary mt-3">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Second Section -->
+        <div class="row bg-white shadow-sm rounded p-4">
+            <div class="col-md-8 d-flex flex-column justify-content-center">
+                <h2 class="text-primary">Join Us</h2>
+                <h3 class="fw-bold">Join our Trusted 20,000+ Students all over the world</h3>
+                <p class="text-muted">Fuel your company's growth with real-time customer insights.</p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="col-md-4">
+                <img src="https://storage.googleapis.com/a1aa/image/-jJrdu20vaD1NIr3hzsb_toQ5IZzw4rpCXJC1D7uJJk.jpg"
+                    class="img-fluid rounded" alt="Girl giving thumbs up">
+            </div>
+        </div>
+    </div>
+    <div class="py-5" style="background-color: #F4F8FC;">
+        <div class="container text-center">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <p class="display-4 fw-bold" style="color: #F961D8;">7K+</p>
+                    <p class="text-muted">Active Members</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <p class="display-4 fw-bold" style="color: #F5953A;">230+</p>
+                    <p class="text-muted">Expert Trainer</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <p class="display-4 fw-bold" style="color: #3DB0E5;">10+</p>
+                    <p class="text-muted">Sports</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <p class="display-4 fw-bold" style="color: #FF7999;">50+</p>
+                    <p class="text-muted">Awards</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+</body>
+
+</html>
