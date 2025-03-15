@@ -6,495 +6,738 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicPro</title>
     <link rel="icon" type="image/png" href="/assets/images/logo.png">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gramatika:wght@500&display=swap" rel="stylesheet">
 
 </head>
+<style>
+    header::before,
+    main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+        /* Chiều cao gradient */
+        background-color: hsla(0, 0%, 100%, 1);
+        background-image:
+            radial-gradient(at 99% 98%, hsla(52, 83%, 64%, 1) 0px, transparent 50%),
+            radial-gradient(at 79% 33%, hsla(278, 73%, 76%, 1) 0px, transparent 50%),
+            radial-gradient(at 9% 41%, hsla(205, 93%, 65%, 1) 0px, transparent 50%),
+            radial-gradient(at 38% 72%, hsla(262, 80%, 61%, 1) 0px, transparent 50%);
+        background-repeat: no-repeat;
+        background-size: 100% 600px;
+        z-index: -1;
+    }
 
-<body class="bg-gradient-to-br from-blue-100 via-white to-pink-200 min-h-screen flex flex-col items-center">
-    <header class="w-full flex justify-between items-center px-20 py-5">
-        <div class="flex items-center">
-            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-8 w-auto">
-            <span class="text-lg font-bold ml-2">MicPro</span>
+    .text-gradient {
+        background: linear-gradient(90deg, #F961D8, #1663F9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .volunteer-section {
+        background: linear-gradient(90deg, #7D2AE8, #5B8DEF);
+        color: white;
+        border-radius: 20px;
+        padding: 50px;
+    }
+
+    .volunteer-image {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .btn-custom {
+        background: white;
+        color: #1E40AF;
+        font-weight: bold;
+        border-radius: 30px;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+    .btn-custom i {
+        margin-left: 8px;
+    }
+
+    .donner .card-hover {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .card-hover:hover {
+        background-color: white !important;
+
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+        background-color: #fff;
+        padding: 50px 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .footer-logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .footer-logo span {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .footer-links h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-links ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-social a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+        /* Viền tròn */
+        text-decoration: none;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        background-color: #fff;
+    }
+
+    .footer-social img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .footer-social a:hover {
+        color: #007bff;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+        padding-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .footer-bottom a {
+        margin: 0 10px;
+        color: #666;
+        text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 991px) {
+
+        .navbar-nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar .btn {
+            margin-top: 10px;
+        }
+
+        .btn-custom {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .volunteer-section {
+            text-align: center;
+        }
+
+        .btn-custom {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+</style>
+
+<body>
+    <header class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/assets/images/logo.png" alt="MicPro Logo" style="height: 32px;">
+                <span class="fw-bold ms-2">MicPro</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-lg-3 gap-2 text-center">
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#"
+                            data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Web Development</a></li>
+                            <li><a class="dropdown-item" href="#">SEO Optimization</a></li>
+                            <li><a class="dropdown-item" href="#">Marketing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#"
+                            data-bs-toggle="dropdown">Expertise</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">AI & ML</a></li>
+                            <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
+                            <li><a class="dropdown-item" href="#">Cyber Security</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#">Cases</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#"
+                            data-bs-toggle="dropdown">Company</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="#">Careers</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <a href="#" class="btn btn-primary rounded-pill px-4 d-lg-block d-none">Donate Now</a>
         </div>
-        <nav class="hidden md:flex space-x-6">
-            <a href="#" class="text-gray-700 hover:text-black">Home</a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
-                    Services
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Web Development</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">SEO Optimization</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Marketing</a>
-                </div>
-            </div>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
-                    Expertise
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">AI & ML</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Cloud Computing</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Cyber Security</a>
-                </div>
-            </div>
-            <a href="#" class="text-gray-700 hover:text-black">Cases</a>
-            <a href="#" class="text-gray-700 hover:text-black">Pricing</a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-gray-700 hover:text-black flex items-center">
-                    Company
-                    <svg class="w-4 h-4 ml-1 transition-transform" :class="{'rotate-180': open}"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div x-show="open" @click.away="open = false"
-                    class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">About Us</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Careers</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Contact</a>
-                </div>
-            </div>
-        </nav>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Donate Now</button>
     </header>
 
-    <main class="text-center mt-20 px-5">
-        <h1 class="text-4xl md:text-6xl font-bold">Build Your Dream <br> Website with Our Skilled</h1>
-        <h2 class="text-4xl md:text-6xl font-bold"><span class="text-pink-500">Development</span><span
-                class="text-blue-600"> Team</span></h2>
-        <p class="text-gray-700 mt-4">Are you looking for a way to close all marketing, technical and customer <br>
-            support tasks for your company in one place</p>
-        <div class="mt-6 flex justify-center space-x-4">
-            <button class="bg-blue-600 text-white px-6 py-3 rounded-full">Get Started →</button>
-            <button class="border border-black px-6 py-3 rounded-full">Watching video</button>
+    <main class="container text-center mt-5 px-3 mb-5">
+        <h1 class="display-5 fw-bold text-balance">
+            Fundraising Through Your <br>
+            Social<span class="text-gradient"> Networks</span>
+        </h1>
+
+        <p class="text-muted mt-3">
+            Are you looking for a way to close all marketing, technical and customer <br>
+            support tasks for your company in one place?
+        </p>
+
+        <!-- Các nút được căn giữa và hiển thị dạng cột trên mobile -->
+        <div class="mt-4 d-grid gap-3 d-sm-flex justify-content-center">
+            <button class="btn btn-primary px-4 py-2 rounded-pill">Donate Now →</button>
+            <button class="btn btn-light px-4 py-2 rounded-pill"><i class="bi bi-caret-right-fill"
+                    style="color: #1663F9;"></i> Watch
+                Video</button>
         </div>
     </main>
 
-    <div class="container mx-auto px-4 py-8 m-5">
-        <div class="text-center">
-            <h1 class="text-2xl md:text-4xl font-bold mb-4">
-                More than
-                <span class="text-blue-600">
-                    80,000+
-                </span>
-                companies trust Micpro
-            </h1>
-            <div class="flex justify-center space-x-8 mb-8 mt-5">
-                <img alt="slack logo" class="h-8" height="50" src="assets/images/Vector.png" width="100" />
-                <img alt="amazon logo" class="h-8" height="50" src="assets/images/Union.png" width="100" />
-                <img alt="woocommerce logo" class="h-8" height="50" src="assets/images/Union (1).png" width="100" />
-                <img alt="airwallex logo" class="h-8" height="50" src="assets/images/Company logo.png" width="100" />
-                <img alt="ghost logo" class="h-8" height="50" src="assets/images/Company logo (1).png" width="100" />
+
+    <div class="container text-center" style="margin-top: 100px;">
+        <h1 class="display-4 fw-bold">
+            More than <span class="text-primary">80,000+</span> companies <br> trust Micpro
+        </h1>
+
+        <!-- Danh sách logo -->
+        <!-- Wrapper bình thường cho Desktop -->
+        <div class="logo-container d-none d-md-flex justify-content-center align-items-center gap-4 my-4">
+            <img src="assets/images/Vector.png" alt="Slack" class="img-fluid opacity-50 hover-opacity-100">
+            <img src="assets/images/Union.png" alt="Amazon" class="img-fluid opacity-50 hover-opacity-100">
+            <img src="assets/images/Union (1).png" alt="WooCommerce" class="img-fluid opacity-50 hover-opacity-100">
+            <img src="assets/images/Company logo.png" alt="Airwallex" class="img-fluid opacity-50 hover-opacity-100">
+            <img src="assets/images/Company logo (1).png" alt="Ghost" class="img-fluid opacity-50 hover-opacity-100">
+        </div>
+
+
+        <!-- Các thẻ dịch vụ -->
+        <div class="row g-4">
+            <div class="col-sm-6 col-md-3">
+                <div class="card shadow-sm p-4 border-0 text-start">
+                    <div class="icon bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 60px; height: 60px; background: linear-gradient(157.75deg, #D555C7 14.46%, #F396EA 79.18%);
+">
+                        <i class="fas fa-home fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mt-3">Health & Shelter</h5>
+                    <p class="text-muted small">Support</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card shadow-sm p-4 border-0 text-start">
+                    <div class="icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 60px; height: 60px; background: linear-gradient(160.02deg, #F49235 11.67%, #FFB46D 82.2%);
+">
+                        <i class="fas fa-hamburger fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mt-3">Food & Groceries</h5>
+                    <p class="text-muted small">Support</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card shadow-sm p-4 border-0 text-start">
+                    <div class="icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 60px; height: 60px; background: linear-gradient(339.28deg, #6BCEFD 11.58%, #32A9DF 88.12%);
+">
+                        <i class="fas fa-lightbulb fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mt-3">Educational</h5>
+                    <p class="text-muted small">Support</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card shadow-sm p-4 border-0 text-start">
+                    <div class="icon bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 60px; height: 60px; background: linear-gradient(157.68deg, #FF7999 17.3%, #FFBDCC 82.95%);
+">
+                        <i class="fas fa-heart fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mt-3">Health & Insurance</h5>
+                    <p class="text-muted small">Support</p>
+                </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center mb-8 mt-5">
-            <div class="bg-white shadow-md rounded-lg p-4">
-                <div class="flex justify-center mb-2">
-                    <div class="bg-pink-500 text-white rounded-full p-3">
-                        <i class="fas fa-home">
-                        </i>
-                    </div>
-                </div>
-                <h2 class="font-bold">
-                    Health &amp; Shelter
-                </h2>
-                <p class="text-gray-500">
-                    Support
-                </p>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
-                <div class="flex justify-center mb-2">
-                    <div class="bg-orange-500 text-white rounded-full p-3">
-                        <i class="fas fa-utensils">
-                        </i>
-                    </div>
-                </div>
-                <h2 class="font-bold">
-                    Food &amp; Groceries
-                </h2>
-                <p class="text-gray-500">
-                    Support
-                </p>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
-                <div class="flex justify-center mb-2">
-                    <div class="bg-blue-500 text-white rounded-full p-3">
-                        <i class="fas fa-lightbulb">
-                        </i>
-                    </div>
-                </div>
-                <h2 class="font-bold">
-                    Educational
-                </h2>
-                <p class="text-gray-500">
-                    Support
-                </p>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
-                <div class="flex justify-center mb-2">
-                    <div class="bg-pink-500 text-white rounded-full p-3">
-                        <i class="fas fa-heart">
-                        </i>
-                    </div>
-                </div>
-                <h2 class="font-bold">
-                    Health &amp; Insurance
-                </h2>
-                <p class="text-gray-500">
-                    Support
-                </p>
-            </div>
-        </div>
-        <div class="text-center mb-8 p-8">
-            <h2 class="text-2xl md:text-3xl font-bold">
-                You can Help lots of people<br>
-                <span class="text-blue-600">
-                    helping
-                </span>
-                others.
+
+
+        <!-- Phần hỗ trợ -->
+        <div class="mt-5 text-center" style="margin-top: 100px;">
+            <h2 class="display-5 fw-bold">
+                You can help lots of people <br>
+                <span class="text-primary">helping others</span>.
             </h2>
         </div>
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">
-                    We are here to support the vulnerable.
-                </h1>
-                <p class="text-gray-600 mb-6">
+
+        <div class="row align-items-center mt-5">
+            <div class="col-md-6 order-2 order-md-1"> <!-- Thay đổi order-md-1 để nội dung ở bên trái -->
+                <h1 class="fw-bold">We are here to support the vulnerable.</h1>
+                <p class="text-muted">
                     Transform the way you work with one place for everyone and everything you need to get stuff done.
                 </p>
-                <ul class="space-y-4">
-                    <li class="flex items-center text-gray-700">
-                        <i class="fas fa-check-circle text-red-500 mr-2">
-                        </i>
-                        500m liters of water provided through communities
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-danger me-2"></i> 500m liters of water provided through
+                        communities
                     </li>
-                    <li class="flex items-center text-gray-700">
-                        <i class="fas fa-check-circle text-red-500 mr-2">
-                        </i>
-                        4000+ houses built for the poor people
+                    <li class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-danger me-2"></i> 4000+ houses built for the poor people
                     </li>
-                    <li class="flex items-center text-gray-700">
-                        <i class="fas fa-check-circle text-red-500 mr-2">
-                        </i>
-                        700+ schools built for those children
+                    <li class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-danger me-2"></i> 700+ schools built for those children
                     </li>
                 </ul>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <img alt="Illustration of a task management interface" class="rounded-lg shadow-lg" height="300"
-                        src="https://storage.googleapis.com/a1aa/image/x4XLTuT443gzVR2L17ONb8FURCLu8d88g0SCX9W0DIk.jpg"
-                        width="400" />
-                    <img alt="Notification with a checkmark and user icon"
-                        class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 rounded-lg shadow-lg"
-                        height="100"
-                        src="https://storage.googleapis.com/a1aa/image/NSufvaTHL-7SgJ4rp3MqKLFUWEOck6s6YLxwVLzDu-s.jpg"
-                        width="150" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex justify-center mb-6">
-        <img alt="Three people holding a donation box" class="rounded-lg" height="450"
-            src="assets/images/Mask group.png" width="800" />
-    </div>
-    <div class=" p-6 rounded-lg shadow-lg w-full px-4" style="background-color: rgb(225, 232, 238);">
-        <h2 class="text-2xl font-bold text-center mb-6">
-            Top
-            <span class="text-blue-500">Donors</span>
-        </h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-10">
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">1</span>
-            </div>
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">2</span>
-            </div>
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">3</span>
-            </div>
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">4</span>
-            </div>
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">5</span>
-            </div>
-            <div class=" p-4 rounded-lg shadow flex items-center">
-                <img alt="Profile picture of Micle James" class="w-12 h-12 rounded-full mr-4"
-                    src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg" />
-                <div>
-                    <h3 class="font-bold">Micle James</h3>
-                    <p>$1,225.00</p>
-                </div>
-                <span
-                    class="ml-auto bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center">6</span>
-            </div>
-        </div>
-    </div>
-    <div class="px-4 py-8">
-        <div class="text-center">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                We're here to help our Earth <br>
-                <span class="text-blue-500">breathe</span> again.
-            </h1>
-            <p class="text-gray-500 mb-8">
-                Voluptatem accusantium doloremque laud totam rem aperiam, eaque ipsa quae ab illoapriam, eaque ipsa
-                quae.
-            </p>
-        </div>
-        <div class="flex flex-col md:flex-row items-center justify-center mt-8">
-            <img alt="Group of volunteers working together" class="w-full md:w-1/2 mb-4 md:mb-0" height="400"
-                src="https://s3-alpha-sig.figma.com/img/a093/2899/e7d1fe154b7a9074b8e2938b1d835716?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=V28ACMEx8XvZZb6-6UigG4URqmeK~XHxXSh7nwYsVaCghhaCiAUZ-VsvHAJlMGJ4NxJL7sEeivTmU~0NvqCvNssDCgohwvj72s-0d4jdYtbB66Ef5310ok6KaCQFxEsHyjoidR7bwxo5CfAaNqNoUXwp2KJ52VTCBHlNIeR3HniqHe25sgidQReeGUbD8QV4Bj62V6rP3e7q3jPZR2qCatGbN6fiW1V~nBeY6lSBzkFl1KAZw9YuNYMRQABGERjI~8G6XepqdOMcGIBluiSHXGD7K7lCpCy26EBifTJSVaAeT8u5WXXXUrjVfLoP04EzaSHQZGIePFO59B-Ol22Ahw__"
-                width="600" />
-            <div class="mt-8 md:mt-0 md:ml-8 grid grid-cols-2 gap-8 text-left">
-                <div>
-                    <p class="text-3xl font-bold text-blue-500">254K</p>
-                    <p class="text-gray-500">Collaborators</p>
-                </div>
-                <div>
-                    <p class="text-3xl font-bold text-pink-500">488K</p>
-                    <p class="text-gray-500">Companies</p>
-                </div>
-                <div>
-                    <p class="text-3xl font-bold text-blue-500">157K</p>
-                    <p class="text-gray-500">Human Impacted</p>
-                </div>
-                <div>
-                    <p class="text-3xl font-bold text-orange-500">325K</p>
-                    <p class="text-gray-500">Assisted Communities</p>
+            <div class="col-md-6 d-flex justify-content-center order-2 order-md-2">
+                <!-- Thay đổi order-md-2 để ảnh ở bên phải -->
+                <div class="position-relative">
+                    <img src="assets/images/aa.jpg" class="img-fluid rounded shadow-lg" alt="Illustration">
                 </div>
             </div>
         </div>
 
     </div>
-    <div class="container mx-auto px-4 py-16">
-        <div class="text-center mb-8 p-8">
-            <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                Our
-                <span class="text-blue-500">
-                    Testimonial
-                </span>
-            </h1>
-            <p class="text-gray-500 mb-8">
-                Read and understand our testimonial and know what people say
-            </p>
+
+    <div class="justify-content-center my-4" style="background: #F1F5F9; ">
+        <div class="container p-5">
+            <img src="assets/images/Mask group.png" alt="Three people holding a donation box" class="img-fluid ">
         </div>
-        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <img alt="Portrait of Joe Root" class="w-24 h-24 rounded-full mx-auto mb-4" height="100"
-                    src="https://storage.googleapis.com/a1aa/image/AmlYyK7IbTeN9wo5Uxi0K-J_BWBwTyuuCyKwxVG68To.jpg"
-                    width="100" />
-                <p class="text-gray-500 mb-4">
-                    I recently had to jump on 10+ different calls across eight different countries to find the right
-                    owner.
-                </p>
-                <h3 class="font-bold">
-                    Joe Root
-                </h3>
-                <p class="text-gray-500">
-                    Head of Design at AMA
-                </p>
+
+        <div class="p-5 container px-4 donner">
+            <h2 class="text-center fw-bold mb-4">
+                Top <span class="text-primary">Donors</span>
+            </h2>
+            <div class="row g-4 px-4">
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover"
+                        style="border-radius: 12px;">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">1</span>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover"
+                        style="border-radius: 12px;">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">2</span>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">3</span>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <img alt="Portrait of Billy Root" class="w-24 h-24 rounded-full mx-auto mb-4" height="100"
-                    src="https://storage.googleapis.com/a1aa/image/WEkdElE8BfhAP0KYXsUZY4NsJYaBX8lXeGI5xe2AuGM.jpg"
-                    width="100" />
-                <p class="text-gray-500 mb-4">
-                    I recently had to jump on 10+ different calls across eight different countries to find the right
-                    owner.
-                </p>
-                <h3 class="font-bold">
-                    Billy Root
-                </h3>
-                <p class="text-gray-500">
-                    Web Designer at AMA
-                </p>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <img alt="Portrait of Sarah Root" class="w-24 h-24 rounded-full mx-auto mb-4" height="100"
-                    src="https://storage.googleapis.com/a1aa/image/uLnkrmRKZ4FRCVsKM426Eh30pS-jj4uJLeBjd-Vg2JA.jpg"
-                    width="100" />
-                <p class="text-gray-500 mb-4">
-                    I recently had to jump on 10+ different calls across eight different countries to find the right
-                    owner.
-                </p>
-                <h3 class="font-bold">
-                    Sarah Root
-                </h3>
-                <p class="text-gray-500">
-                    UI Designer at AMA
-                </p>
+            <div class="row g-4 px-4 p-5">
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover"
+                        style="border-radius: 12px;">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">1</span>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover"
+                        style="border-radius: 12px;">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">2</span>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="p-3 rounded border d-flex align-items-center bg-white card-hover"
+                        style="border-radius: 12px;">
+                        <img src="https://storage.googleapis.com/a1aa/image/f2f3vZ8Li-dbNacMRvQOgM02QAAEIYHX5QyKqdbPz68.jpg"
+                            alt="Profile picture of Micle James" class="rounded-circle me-3" width="50" height="50">
+                        <div>
+                            <h5 class="fw-bold mb-0">Micle James</h5>
+                            <p class="mb-0 mt-2">$1,225.00</p>
+                        </div>
+                        <span
+                            class="ms-auto bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 30px; height: 30px;">3</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="pricing-container">
-            <h1 class="text-4xl font-bold text-center mb-8">Latest News & <span class="text-blue-600">Campaigns</span>
-            </h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <span
-                            class="inline-block bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Donation</span>
-                        <h2 class="mt-2 text-lg font-semibold">Why Are Forest So Important For Earth?</h2>
+
+    <div class="container py-5 text-center">
+        <h1 class="fw-bold">
+            We're here to help our Earth <br>
+            <span class="text-primary">breathe</span> again.
+        </h1>
+        <p class="text-secondary">
+            Voluptatem accusantium doloremque laud totam rem aperiam, eaque ipsa quae ab illoapriam, eaque ipsa
+            quae.
+        </p>
+
+        <div class="row align-items-center mt-5">
+            <div class="col-md-6 me-5">
+                <img src="https://s3-alpha-sig.figma.com/img/a093/2899/e7d1fe154b7a9074b8e2938b1d835716?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ejuiPuzRi5RwnvE98Ix6Ea8OKbg9j7pRDuBeJ5IUqJUoiJYh-n3EyS5YnDVxQ0tc2ip6vM3mETEgfdAv~r-OmvwYNswd1Rk7DdpTw-Ph7pcx2UY4vInrbjvMjynGipqcPjKYT1EIYVrR8cOtbejgbM7J2cqAuviKKU5zfi8GZso6SsKtkoc7ny6cWNYyZgMT5csjku7XBFP~lF9istGjyrjtNyD8k-R6QDeTMS6aGA-ealiy~mdelo2uCaovbtM4sXuoqSj1cl3N1I4tAUJ3Jvamqouh1cvWWNwAwwBb3vAmE4~y5CnaL1-u8W4C6DkYgMypcwu6bSpvNYC7BfzlvQ__"
+                    class="img-fluid rounded" alt="Volunteers">
+            </div>
+            <div class="col-md-5 ms-5 mt-5">
+                <div class="row text-center g-4">
+                    <div class="col-6 border-end border-bottom">
+                        <h3 class="fw-bold text-primary">254K</h3>
+                        <p class="text-secondary">Collaborators</p>
                     </div>
-                    <img src="https://s3-alpha-sig.figma.com/img/dcbd/94be/be5eafa1ba562795cc6fb1f49864340b?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=AxsSCHKXpQqoNfgHrEkBqNXiXHoEp4N6WaIivcyDTo00O5x-03vAKXU6lhW2~yoDTPqL12v-60vV1M1YOdEiyAymtgRQTZ3E-7uTG8n8CIFIhd39ZrU9-joJmMLALcZLZ5pLjTuhLoSYZpT-05GAtMFZU2muzkKcARU~yRbDUu0Z1I-iA8zSdAKPX5NNs2pEjMfWei3T3yYI61xnMMzsCzksR9cea-1UukN7KXJfmjx3UMuKCGf6W9AGBZQAjeJtCLJvtAbAUf-l8-GCttyM5b2O8Kh8JAbyBvwUs5psGcVZ14xm6IsmRnL6uH8EjBHaizomo-aeibUdgu8twYBK2g__"
-                        alt="Person holding a donation box in a busy room" class="w-full h-48 object-cover">
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <span
-                            class="inline-block bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Donation</span>
-                        <h2 class="mt-2 text-lg font-semibold">What To Donate To A Food Bank & What To Avoid.</h2>
+                    <div class="col-6 border-bottom">
+                        <h3 class="fw-bold text-danger">488K</h3>
+                        <p class="text-secondary">Companies</p>
                     </div>
-                    <img src="https://s3-alpha-sig.figma.com/img/e8bd/cf66/242a3aff6a99c0ee2298f83200a07605?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=nU-Zj8eawkdo9rfdq4frWwYPAmHQIhjsNQZ-cIEd-TqZeZeUyHUkeUAWnSgiYyIkl-NVGe6BukEoTVEhS8UhV2k0llgV6J4l83Y30gPvZzJvSwg65vKGBe49oHi1wBN2OSPEZ575Q49wHWUkMF30d6sdy2fkPbXotyjfgS02Jo8j2TQZksX-zJ7wS19X~zDDJ0MtxHZ8dFZ~gvqGJEhM6hv7oRrCGmKV8w9fzpRu1frq3-e6QNFQGAp7N4aeZ2HDvFe5jyefahTUO5BBa-Cbyb3ZrKrFryE-FCpXxPrnFEja0ZQDPEsE0m8HKy4ayb3J0cf53-UTBb-xFz09YDDtDw__"
-                        alt="People organizing food donations in a room" class="w-full h-48 object-cover">
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <span
-                            class="inline-block bg-pink-100 text-pink-600 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Donation</span>
-                        <h2 class="mt-2 text-lg font-semibold">What To Donate To A Food Bank & What To Avoid.</h2>
+                    <div class="col-6 border-end">
+                        <h3 class="fw-bold text-info">157K</h3>
+                        <p class="text-secondary">Human Impacted</p>
                     </div>
-                    <img src="https://s3-alpha-sig.figma.com/img/3200/4e28/e994ab59e20680f0e577aa123ed4c87a?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=TlvFB-0XSz0xLorDw~~Y-eHYOqJ7Qwem5kw4CsmZ4CEpb7lTdNak9s7rQNoNrtti~sFFtPg01F19IMew~qfzEA88PBzohafwhpsAAk1~jNnOVvqA7VFG~fRer1d7wNxhQmFkaO5CSFUh79hUMJbUKcGIpKwvnNJuVT247slMAE5RLOR5VMbw~fx4K3XLXc5CTCRzGJzHsYqSE3zdZlJDlfX1AgbOuG1RyZyS6fNu4~LcZZqfeeQwXzWLN-~xzEzuu~F2ke2uC6EL4kApcQgEsxj4G71BkqxddhHbfI34VtMXAmPYbnC6iSMUbxqcwkB6rE6CW5iLUZRYZzok~8E2hg__"
-                        alt="Group of people holding donation boxes and smiling" class="w-full h-48 object-cover">
+                    <div class="col-6">
+                        <h3 class="fw-bold text-warning">325K</h3>
+                        <p class="text-secondary">Assisted Communities</p>
+                    </div>
                 </div>
             </div>
-            <div class="text-center mb-8">
-                <button
-                    class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">
-                    VIEW ALL ARTICLES <i class="fas fa-arrow-right ml-2"></i>
-                </button>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Our <span class="text-primary">Testimonials</span></h1>
+            <p class="text-muted">Read what our customers say about their experiences with us.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-4 mb-4"> <!-- col-sm-6 cho màn hình nhỏ và col-md-4 cho màn hình lớn -->
+                <div class="card text-center border p-4 mx-auto position-relative">
+                    <div class="position-relative mx-auto mb-3" style="width: 98px; height: 98px;">
+                        <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center"
+                            style=" width: 98px; height: 98px; background: #FFF2E7; position: absolute; top: 0; left: 0;">
+                            <img src="assets/images/avatar1.png" class="w-100 h-100" style="object-fit: cover;"
+                                alt="Portrait">
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 35px; height: 35px;">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted">
+                        I recently had to jump on 10+ different calls across eight different countries to find the right
+                        owner.
+                    </p>
+                    <hr class="border-2 w-25 mx-auto mb-3" style="border-color: #F5953A;">
+                    <h3 class="fw-semibold mb-1">Billy Root</h3>
+                    <p class="text-secondary">Web Designer at AMA</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 mb-4"> <!-- col-sm-6 cho màn hình nhỏ và col-md-4 cho màn hình lớn -->
+                <div class="card text-center border p-4 mx-auto position-relative">
+                    <div class="position-relative mx-auto mb-3" style="width: 98px; height: 98px;">
+                        <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center"
+                            style=" width: 98px; height: 98px; background: #E6F5FC; position: absolute; top: 0; left: 0;">
+                            <img src="assets/images/avatar2.png" class="w-100 h-100" style="object-fit: cover;"
+                                alt="Portrait">
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 35px; height: 35px; background: #3DB0E5;">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted">
+                        I recently had to jump on 10+ different calls across eight different countries to find the right
+                        owner.
+                    </p>
+                    <hr class="border-2 w-25 mx-auto mb-3" style="border-color: #3DB0E5;">
+                    <h3 class="fw-semibold mb-1">Billy Root</h3>
+                    <p class="text-secondary">Web Designer at AMA</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 mb-4"> <!-- col-sm-6 cho màn hình nhỏ và col-md-4 cho màn hình lớn -->
+                <div class="card text-center border p-4 mx-auto position-relative">
+                    <div class="position-relative mx-auto mb-3" style="width: 98px; height: 98px;">
+                        <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center"
+                            style="width: 98px; height: 98px; background: #FEF5F7; position: absolute; top: 0; left: 0;">
+                            <img src="assets/images/avatar3.png" class="w-100 h-100" style="object-fit: cover;"
+                                alt="Portrait">
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 35px; height: 35px; background: #FF7999;">
+                            <i class="fas fa-quote-right text-white"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted">
+                        I recently had to jump on 10+ different calls across eight different countries to find the right
+                        owner.
+                    </p>
+                    <hr class="border-2 w-25 mx-auto mb-3" style="border-color: #FF7999;">
+                    <h3 class="fw-semibold mb-1">Billy Root</h3>
+                    <p class="text-secondary">Web Designer at AMA</p>
+                </div>
             </div>
 
         </div>
     </div>
-    <div
-        class="bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg p-8 flex flex-col md:flex-row items-center container">
-        <div class="md:w-1/2 mb-4 md:mb-0">
-            <img src="assets/images/a11.png" alt="Group of diverse volunteers smiling" class=" object-cover rounded-lg">
+
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold">Latest News & <span class="text-primary">Campaigns</span></h1>
         </div>
-        <div class="md:w-1/2 md:ml-4">
-            <h2 class="text-2xl font-bold mb-4">Become a Volunteer of our charity</h2>
-            <p class="mb-4 text-white">We believe your project is only as good as the team that's working on it. When we
-                work
-                with you and your team, we know there are no shortcuts to success. Your research is done; now
-                let's
-                get down to business!</p>
-            <button
-                class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                Join the team <i class="fas fa-arrow-right ml-2"></i>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card d-flex flex-column h-100 border-0" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <span class="badge" style="background-color: #EAF5FB; color: #0091D0; width: 96px; height: 30px; 
+           text-align: center; display: flex; align-items: center; 
+           justify-content: center; border-radius: 6px; font-weight: 600;">
+                            Donation
+                        </span>
+
+                        <h5 class="card-title mt-2" style="color: #2C2C2C; font-weight: 700;">Why Are Forest So
+                            Important For Earth?</h5>
+                    </div>
+                    <img src="https://s3-alpha-sig.figma.com/img/dcbd/94be/be5eafa1ba562795cc6fb1f49864340b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Ew4MTHdILMvzVWDwYzzn-JfuX0goHMO7FZYTEBOtk0itA~ftr3~NN6d6Vyhg4UCMW1X6QkuYiIKqe3h~e3cwlSF15adQMCggKhgF8UUNhdGhFa9swnOP3~eweFpvATDpMj6BfwPMWugrB8lS9vbB147be2b4PGQnKHcraZBio7n9pNySDOD0UYe6WoDGjgmWddv93~Qb66PZatO-XtMlh1x~kq1rBNKzsO-fbsHasb78mc3YvAmomW8umCXBAjHqNSTqp36mwx~DRG75~w9DI~bNq3DoZaMIoc-dK~Sbh4RmUool2wOZ2DauyPpHuWsageu7BJ0Zg57-2r-yX28JdA__"
+                        class="card-img-bottom" alt="Forest" style="border-radius: 12px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card d-flex flex-column h-100 border-0">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <span class="badge" style="background-color: #FFF2E7; color: #F5953A; width: 96px; height: 30px; 
+                        text-align: center; display: flex; align-items: center; 
+                        justify-content: center; border-radius: 6px; font-weight: 600;">
+                            Donation
+                        </span>
+                        <h5 class="card-title mt-2">What To Donate To A Food Bank & What To Avoid.</h5>
+                    </div>
+                    <img src="https://s3-alpha-sig.figma.com/img/e8bd/cf66/242a3aff6a99c0ee2298f83200a07605?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pHZFT3HgIa~vyZLquNAtpA~4Bj2LtPBSrkYOCqpH4N-Ap9uTTwEPR~i-poPab1pdaHVoCred1dkmnXKNJPOApLk5dcs7587oaF2J0kFLBEg4Cglj~sHlVLGQ08o7l67Niw32EuPvNDkb1VgphZggcgfcCsRrib13d9aLKwKJwzI6x~c30iHK79HdNoPP90261pKSl2RmDgPNv69ZKxGHnkBuhEQ~3WcVpRRptD-pOXIEKtHuDlkBX5plTmF5Ur0jK8d~950P2IvKEhdAnjEoexP4iSUrUHF3BBdMjb-0dNZ15yMY9K5MgIHFuoEKfAokyS8WAVRQwcOZAxIwLmIEng__"
+                        class="card-img-bottom" alt="Food Bank" style="border-radius: 12px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card d-flex flex-column h-100 border-0">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <span class="badge" style="background-color: #FEF5F7; color: #FF7999; width: 96px; height: 30px; 
+                        text-align: center; display: flex; align-items: center; 
+                        justify-content: center; border-radius: 6px; font-weight: 600;">
+                            Donation
+                        </span>
+                        <h5 class="card-title mt-2">What To Donate To A Food Bank & What To Avoid.</h5>
+                    </div>
+                    <img src="https://s3-alpha-sig.figma.com/img/3200/4e28/e994ab59e20680f0e577aa123ed4c87a?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=piCbVInZOCUgOgYTr9DRWda5Z4tVJZ8oEh7tvDtyItdCACc7m9NviHeuqUZmxUVROMbMDB0ZbcbHW2zdtdR3tRntNp7ZDsNg~NfBmaqbt9wJbs6N~ENIBFaL3vDcYJAiMiYdnfywS9r5FJMVmG7i43DAk9iiY3M1H8Tmoffkay5usIcpU-bX8ivGvucwZMj3JRTlYq2fvf0snrsQArDMWqYng12bylhVML0I3Pm7NdqfNFH6Zuveur6jM3MCThRGNk7nVVyabgs0duAktdBHTRBJzOvbE853EbtiOl52fZx6u5GvNsMBatI~e0QjDQmxWAUJUq-y1mDCxhYJnoi7jQ__"
+                        class="card-img-bottom" alt="Donation Boxes" style="border-radius: 12px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-4">
+            <button class="btn btn-primary btn-lg">
+                VIEW ALL ARTICLES <i class="fas fa-arrow-right ms-2"></i>
             </button>
         </div>
     </div>
-    <footer class="text-black py-10">
-        <div class="container ">
-            <div class="row flex justify-between">
-                <div class="col-md-3">
-                    <div class="flex items-center mb-4">
-                        <img alt="MicPro logo" class="mr-2" height="40" src="assets/images/logo.png" width="40" />
-                        <span class="text-xl font-bold">MicPro</span>
-                    </div>
-                    <p>he new allocation will help expand response to cover those.</p>
-                </div>
-                <div class="col-md-2">
-                    <h3 class="font-bold mb-2">Product</h3>
-                    <ul>
-                        <li><a class="hover:underline" href="#">Careers</a></li>
-                        <li><a class="hover:underline" href="#">About us</a></li>
-                        <li><a class="hover:underline" href="#">Insights</a></li>
-                        <li><a class="hover:underline" href="#">PCI Compliance</a></li>
-                        <li><a class="hover:underline" href="#">Integrations</a></li>
-                        <li><a class="hover:underline" href="#">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h3 class="font-bold mb-2">For Developers</h3>
-                    <ul>
-                        <li><a class="hover:underline" href="#">Docs</a></li>
-                        <li><a class="hover:underline" href="#">Knowledge Base</a></li>
-                        <li><a class="hover:underline" href="#">System Status</a></li>
-                        <li><a class="hover:underline" href="#">Tutorials</a></li>
-                        <li><a class="hover:underline" href="#">Security</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h3 class="font-bold mb-2">Resources</h3>
-                    <ul>
-                        <li><a class="hover:underline" href="#">About</a></li>
-                        <li><a class="hover:underline" href="#">Leadership</a></li>
-                        <li><a class="hover:underline" href="#">Press/News</a></li>
-                        <li><a class="hover:underline" href="#">Careers/Team</a></li>
-                        <li><a class="hover:underline" href="#">Contact Us</a></li>
-                    </ul>
-                </div>
+
+    <div class="container my-5">
+        <div class="volunteer-section row align-items-center">
+            <!-- Cột hình ảnh, chuyển xuống dưới khi màn hình nhỏ -->
+            <div class="col-12 col-md-6 mb-4 mb-md-0 order-2 order-md-1">
+                <img src="assets/images/a11.png" alt="Group of volunteers" class="volunteer-image img-fluid">
             </div>
-            <div class="col-md-3flex justify-center mt-6">
-                <a class="mx-2 text-blue-500" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2 text-red-500" href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a class="mx-2 text-blue-400" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2 text-pink-500" href="#"><i class="fab fa-dribbble"></i></a>
-            </div>
-            <div class="text-center mt-6 text-gray-500">
-                <p>© 2021 Besnik.com | All Rights Reserved</p>
-                <div class="flex justify-center space-x-4 mt-2">
-                    <a class="hover:underline" href="#">Platform</a>
-                    <a class="hover:underline" href="#">Products</a>
-                    <a class="hover:underline" href="#">Resources</a>
-                </div>
+            <!-- Cột mô tả, chuyển lên trên khi màn hình nhỏ -->
+            <div class="col-12 col-md-6 order-1 order-md-2">
+                <h2 class="fw-bold">Become a Volunteer of our charity</h2>
+                <p>We believe your project is only as good as the team that's working on it. When we work with you and
+                    your team, we know there are no shortcuts to success. Your research is done; now let's get down to
+                    business!</p>
+                <button class="btn btn-custom">
+                    Join the team <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center footer-logo">
+                        <img src="assets/images/logo.png" alt="MicPro logo">
+                        <span>MicPro</span>
+                    </div>
+                    <p class="mt-3">The new allocation will help expand response to cover those.</p>
+                </div>
+
+                <!-- Sử dụng col-12 (chiếm toàn bộ chiều rộng trên màn hình nhỏ), col-sm-6 (chiếm nửa chiều rộng trên màn hình nhỏ) và col-md-2 (chiếm 2 cột trên màn hình lớn) -->
+                <div class="col-12 col-sm-6 col-md-2 footer-links">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Insights</a></li>
+                        <li><a href="#">PCI Compliance</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-2 footer-links">
+                    <h3>For Developers</h3>
+                    <ul>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Press/News</a></li>
+                        <li><a href="#">Careers/Team</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 text-center footer-social d-flex justify-content-center gap-3 p-3">
+                    <a href="#" class="facebook"><img src="assets/images/facebook.png" alt=""></a>
+                    <a href="#" class="google"><img src="assets/images/gg.png" alt=""></a>
+                    <a href="#" class="twitter"><img src="assets/images/twitter.png" alt=""></a>
+                    <a href="#" class="dribbble"><img src="assets/images/ball.png" alt=""></a>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-start align-items-center mt-4">
+                <p class="mt-3 me-5 order-md-1 order-2">© 2021 Besnik.com | All Rights Reserved</p>
+                <div class="d-flex justify-content-center gap-3 order-md-2 order-1">
+                    <a href="#">Platform</a>
+                    <a href="#">Products</a>
+                    <a href="#">Resources</a>
+                </div>
+
+            </div>
+
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/d584f42692.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicPro</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<style>
+    .btn-custom {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        border: none;
+    }
+
+    .btn-custom:hover {
+        background-color: #0056b3;
+    }
+
+    .collection-title {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .collection-title span {
+        color: #007bff;
+    }
+
+    .nft-card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .nft-card:hover {
+        transform: scale(1.05);
+    }
+
+    .nft-img {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .favorite-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: white;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    .favorite-btn i {
+        color: red;
+    }
+
+    .nft-card {
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .nft-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .nft-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .creator-info {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .countdown {
+        font-size: 14px;
+        font-weight: bold;
+        background: #007bff;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 8px;
+    }
+
+    .category-btn {
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .section-title span {
+        color: #007bff;
+    }
+
+    .seller-card {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .seller-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .seller-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .seller-info h6 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .seller-info p {
+        margin: 0;
+        font-size: 14px;
+        color: gray;
+    }
+
+    .rank-badge {
+        background: #007bff;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    .seller-box {
+        position: relative;
+    }
+</style>
+
+<body>
+    <header class="container-fluid py-3 px-lg-5 d-flex justify-content-between align-items-center bg-white">
+        <div class="d-flex align-items-center">
+            <img src="/assets/images/logo.png" alt="MicPro Logo" class="h-auto" style="height: 45px;">
+            <span class="fs-4 fw-bold ms-2 text-primary">MicPro</span>
+        </div>
+        <nav class="d-none d-md-flex gap-4">
+            <a href="#" class="text-dark text-decoration-none  position-relative">Home</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Course
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">Web Development</a></li>
+                    <li><a class="dropdown-item " href="#">SEO Optimization</a></li>
+                    <li><a class="dropdown-item " href="#">Marketing</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle " type="button" data-bs-toggle="dropdown">
+                    Mentor
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">AI & ML</a></li>
+                    <li><a class="dropdown-item " href="#">Cloud Computing</a></li>
+                    <li><a class="dropdown-item " href="#">Cyber Security</a></li>
+                </ul>
+            </div>
+
+            <a href="#" class="text-dark text-decoration-none ">Blog</a>
+            <a href="#" class="text-dark text-decoration-none ">Contact</a>
+
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle text-decoration-none " type="button"
+                    data-bs-toggle="dropdown">
+                    Program
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " href="#">About Us</a></li>
+                    <li><a class="dropdown-item " href="#">Careers</a></li>
+                    <li><a class="dropdown-item " href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Nút mở menu trên mobile -->
+        <button class="btn btn-primary rounded-pill px-4 py-2 d-none d-md-block fw-bold">Sign Up</button>
+        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list text-primary fs-3"></i>
+        </button>
+
+        <!-- Menu offcanvas cho mobile -->
+        <div class="offcanvas offcanvas-end" id="mobileMenu">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-primary fw-bold">MicPro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav class="d-flex flex-column gap-3">
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Home</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Services</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Expertise</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Cases</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Pricing</a>
+                    <a href="#" class="text-dark text-decoration-none fw-bold">Company</a>
+                    <button class="btn btn-primary w-100 rounded-pill fw-bold">Order Now</button>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+    <div class="container text-center py-5">
+        <h1 class="fw-bold display-4">
+            Embrace Digital Ownership Buy, Trade, and
+            <span class="text-danger">Collect NFTs</span>
+        </h1>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <img src="https://storage.googleapis.com/a1aa/image/ZDXoG9qmMk-k_EdO1CJ_kuGi8hBQFU02Cd0KHpiRKTg.jpg"
+                alt="NFT Icon" class="rounded-circle me-3" width="50" height="50">
+            <p class="text-muted fs-5">
+                We are building the first NFT marketplace that enables creatives to choose and embed licenses when they
+                mint.
+            </p>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-custom">Let's Started</button>
+        </div>
+
+        <div class="mt-5">
+            <img src="https://storage.googleapis.com/a1aa/image/FxI9lgtaEcW4Y7Qjw1NO7YPiiL3jvT1-o-9kZsc-Jro.jpg"
+                alt="Creator Icon" class="rounded-circle" width="100" height="100">
+            <h3 class="fw-bold mt-3">10k+ CREATORS</h3>
+            <p class="text-muted">The first NFT marketplace that enables creators to choose</p>
+        </div>
+
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-3 col-6">
+                <div class="bg-primary p-4 rounded">
+                    <img src="https://storage.googleapis.com/a1aa/image/h6V1tjwRb3VVxe_NYHR2ncnAIMjvisj10AXanFfnAvs.jpg"
+                        alt="NFT 1" class="img-fluid rounded">
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="bg-warning p-4 rounded">
+                    <img src="https://storage.googleapis.com/a1aa/image/tjtoCqdslPItqy0m8BfJWcVBeqMcmHBL5h4e0AzEDnY.jpg"
+                        alt="NFT 2" class="img-fluid rounded">
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mt-3 mt-md-0">
+                <div class="bg-purple p-4 rounded">
+                    <img src="https://storage.googleapis.com/a1aa/image/XchjuntiZLh_8WzQxhE1JL6-boSuX6ud_tO4QSFMBxA.jpg"
+                        alt="NFT 3" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h2 class="collection-title">Featured <span>Collections</span> 🔥</h2>
+            <p class="text-muted">Discover, collect, and sell extraordinary NFTs through our awesome platform.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- NFT Card 1 -->
+            <div class="col-md-4">
+                <div class="card nft-card position-relative shadow">
+                    <div class="favorite-btn">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <img src="https://storage.googleapis.com/a1aa/image/h6V1tjwRb3VVxe_NYHR2ncnAIMjvisj10AXanFfnAvs.jpg"
+                        class="card-img-top nft-img" alt="NFT 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">LuppyclubOfficial</h5>
+                        <p class="text-muted">Created by <a href="#" class="text-decoration-none">LuppyclubOfficial</a>
+                        </p>
+                        <div class="d-flex justify-content-between text-muted">
+                            <span>Floor <strong>0.06 ETH</strong></span>
+                            <span>Total Volume <strong>0.65 ETH</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NFT Card 2 -->
+            <div class="col-md-4">
+                <div class="card nft-card position-relative shadow">
+                    <div class="favorite-btn">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <img src="https://storage.googleapis.com/a1aa/image/tjtoCqdslPItqy0m8BfJWcVBeqMcmHBL5h4e0AzEDnY.jpg"
+                        class="card-img-top nft-img" alt="NFT 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">LuppyclubOfficial</h5>
+                        <p class="text-muted">Created by <a href="#" class="text-decoration-none">LuppyclubOfficial</a>
+                        </p>
+                        <div class="d-flex justify-content-between text-muted">
+                            <span>Floor <strong>0.06 ETH</strong></span>
+                            <span>Total Volume <strong>0.65 ETH</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NFT Card 3 -->
+            <div class="col-md-4">
+                <div class="card nft-card position-relative shadow">
+                    <div class="favorite-btn">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <img src="https://storage.googleapis.com/a1aa/image/XchjuntiZLh_8WzQxhE1JL6-boSuX6ud_tO4QSFMBxA.jpg"
+                        class="card-img-top nft-img" alt="NFT 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">LuppyclubOfficial</h5>
+                        <p class="text-muted">Created by <a href="#" class="text-decoration-none">LuppyclubOfficial</a>
+                        </p>
+                        <div class="d-flex justify-content-between text-muted">
+                            <span>Floor <strong>0.06 ETH</strong></span>
+                            <span>Total Volume <strong>0.65 ETH</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="bg-white p-4 rounded shadow-lg d-flex flex-column align-items-center flex-md-row">
+            <!-- Hình ảnh -->
+            <img src="https://storage.googleapis.com/a1aa/image/efqnocbzP1QYm9SKa5n_nXThLZqHgMedwVDe8Qg0x8E.jpg"
+                alt="Illustration of a monkey with blue hair, wearing an orange suit and yellow shirt"
+                class="rounded img-fluid" style="width: 200px; height: 200px;" />
+
+            <!-- Nội dung -->
+            <div class="mt-4 mt-md-0 ms-md-4 text-center text-md-start">
+                <h1 class="fs-3 fw-bold">JUNK FOOD PARTY #137</h1>
+
+                <!-- Tác giả -->
+                <div class="d-flex align-items-center justify-content-center justify-content-md-start mt-2">
+                    <i class="fas fa-user-circle text-primary"></i>
+                    <span class="ms-2 text-muted small">
+                        Created by <a href="#" class="text-decoration-none text-primary">MitsuoKatori</a>
+                    </span>
+                </div>
+
+                <!-- Countdown -->
+                <div class="d-flex justify-content-center justify-content-md-start mt-3 gap-2">
+                    <div class="bg-light p-2 rounded text-center">
+                        <p class="text-muted mb-0 small">0</p>
+                        <p class="text-muted mb-0 small">DAYS</p>
+                    </div>
+                    <div class="bg-light p-2 rounded text-center">
+                        <p class="text-muted mb-0 small">4</p>
+                        <p class="text-muted mb-0 small">HRS</p>
+                    </div>
+                    <div class="bg-light p-2 rounded text-center">
+                        <p class="text-muted mb-0 small">17</p>
+                        <p class="text-muted mb-0 small">MINS</p>
+                    </div>
+                    <div class="bg-light p-2 rounded text-center">
+                        <p class="text-muted mb-0 small">59</p>
+                        <p class="text-muted mb-0 small">SECS</p>
+                    </div>
+                </div>
+
+                <!-- Giá đấu giá -->
+                <p class="mt-3 fw-semibold">Current Bid</p>
+                <p class="fs-4 fw-bold">1.0324 ETH</p>
+
+                <!-- Nút hành động -->
+                <div class="d-flex justify-content-center justify-content-md-start mt-3 gap-3">
+                    <button class="btn btn-primary">Place a Bid</button>
+                    <button class="btn btn-dark">View Artwork</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="fw-bold">Market <span class="text-primary">Place</span> 🔥</h1>
+            <a href="#" class="text-dark text-decoration-none fw-bold">See All →</a>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="d-flex my-4">
+            <button class="btn btn-primary category-btn">Trendings</button>
+            <button class="btn btn-outline-secondary category-btn">Art</button>
+            <button class="btn btn-outline-secondary category-btn">Music</button>
+            <button class="btn btn-outline-secondary category-btn">Sports</button>
+            <button class="btn btn-outline-secondary category-btn">Photography</button>
+            <button class="btn btn-outline-secondary category-btn">See More</button>
+        </div>
+
+        <!-- NFT Cards -->
+        <div class="row">
+            <!-- NFT Item 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="nft-card p-3">
+                    <img src="https://source.unsplash.com/400x300/?crypto,art" class="nft-image" alt="NFT">
+                    <div class="p-3">
+                        <h5 class="fw-bold">LuppyclubOfficial</h5>
+                        <p class="creator-info">Created by Official</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="price">0.65 ETH</p>
+                            <span class="countdown">04h 20m 14s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NFT Item 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="nft-card p-3">
+                    <img src="https://source.unsplash.com/400x300/?blockchain,nft" class="nft-image" alt="NFT">
+                    <div class="p-3">
+                        <h5 class="fw-bold">LuppyclubOfficial</h5>
+                        <p class="creator-info">Created by Official</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="price">0.65 ETH</p>
+                            <span class="countdown">04h 20m 14s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NFT Item 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="nft-card p-3">
+                    <img src="https://source.unsplash.com/400x300/?digital,art" class="nft-image" alt="NFT">
+                    <div class="p-3">
+                        <h5 class="fw-bold">LuppyclubOfficial</h5>
+                        <p class="creator-info">Created by Official</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="price">0.65 ETH</p>
+                            <span class="countdown">04h 20m 14s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h2 class="section-title">Top <span>Seller</span></h2>
+
+        <div class="row">
+            <!-- Seller 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?man,face" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>3.224 ETH</p>
+                    </div>
+                    <span class="rank-badge">01</span>
+                </div>
+            </div>
+
+            <!-- Seller 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?woman,face" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>2.123 ETH</p>
+                    </div>
+                    <span class="rank-badge">02</span>
+                </div>
+            </div>
+
+            <!-- Seller 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?man,portrait" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>1.254 ETH</p>
+                    </div>
+                    <span class="rank-badge">03</span>
+                </div>
+            </div>
+
+            <!-- Seller 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?woman,portrait" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>2.789 ETH</p>
+                    </div>
+                    <span class="rank-badge">04</span>
+                </div>
+            </div>
+
+            <!-- Seller 5 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?man,beard" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>1.963 ETH</p>
+                    </div>
+                    <span class="rank-badge">05</span>
+                </div>
+            </div>
+
+            <!-- Seller 6 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?woman,smile" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>0.285 ETH</p>
+                    </div>
+                    <span class="rank-badge">06</span>
+                </div>
+            </div>
+
+            <!-- Seller 7 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?man,glasses" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>0.654 ETH</p>
+                    </div>
+                    <span class="rank-badge">07</span>
+                </div>
+            </div>
+
+            <!-- Seller 8 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="seller-card seller-box">
+                    <img src="https://source.unsplash.com/50x50/?man,hat" class="seller-img" alt="Seller">
+                    <div class="seller-info">
+                        <h6>Killian James</h6>
+                        <p>1.224 ETH</p>
+                    </div>
+                    <span class="rank-badge">08</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card bg-gradient text-white p-4" style="background: linear-gradient(to right, #3b82f6, #9333ea);">
+            <h1 class="text-center mb-4">Trending Creators</h1>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bold me-3">#1</span>
+                        <img src="https://storage.googleapis.com/a1aa/image/JhyXKIPlV3tj_bMq1ed3yEdvSX6dPjKZtbS6B7Y0p1Y.jpg"
+                            alt="Profile" class="rounded-circle" width="40" height="40">
+                        <div class="ms-3">
+                            <p class="mb-0 fw-bold">80solita</p>
+                            <small class="text-light">@80solita</small>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <span class="me-3">4</span>
+                        <span class="me-3">14</span>
+                        <span class="me-3">5471 ETH</span>
+                        <span class="me-3">0 ETH</span>
+                        <span>5.471 ETH</span>
+                    </div>
+                </li>
+                <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bold me-3">#2</span>
+                        <img src="https://storage.googleapis.com/a1aa/image/ErxlyjB9FRvYCZ2H0YcqQsTZ6PT7G5DpK-P9G-D_ovg.jpg"
+                            alt="Profile" class="rounded-circle" width="40" height="40">
+                        <div class="ms-3">
+                            <p class="mb-0 fw-bold">Duck</p>
+                            <small class="text-light">@Duck</small>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <span class="me-3">5</span>
+                        <span class="me-3">53</span>
+                        <span class="me-3">5471 ETH</span>
+                        <span class="me-3">10 ETH</span>
+                        <span>5.471 ETH</span>
+                    </div>
+                </li>
+                <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bold me-3">#3</span>
+                        <img src="https://storage.googleapis.com/a1aa/image/mh7rVIZV_sf5ZLSDSr4R2Kj3l6laT2HrZ2ICSa4hZ5s.jpg"
+                            alt="Profile" class="rounded-circle" width="40" height="40">
+                        <div class="ms-3">
+                            <p class="mb-0 fw-bold">JonJizzle_650</p>
+                            <small class="text-light">@JonJizzle_650</small>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <span class="me-3">3</span>
+                        <span class="me-3">09</span>
+                        <span class="me-3">5471 ETH</span>
+                        <span class="me-3">4 ETH</span>
+                        <span>5.471 ETH</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+</body>
+
+</html>
