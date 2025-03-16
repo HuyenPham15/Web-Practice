@@ -17,6 +17,81 @@
 
 </head>
 <style>
+    .vector-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Hình nền phía sau */
+    .vector {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: #FBC14A;
+        border-radius: 40%;
+        z-index: 0;
+        transform: rotate(-10deg);
+    }
+
+    /* Hình nền bên phải */
+    .vector.right-bg {
+        background: #E34D59;
+        transform: rotate(12deg);
+    }
+
+    /* Hình ảnh */
+    .vector-image {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        z-index: 1;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .col-md-2 .vector-container {
+        left: 88.2px;
+        top: 40px;
+    }
+
+    .col-md-2 .vector-container.right {
+        right: 1173px;
+        top: 90px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 10%;
+        right: 15%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .arrow::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: black;
+        transform: rotate(30deg);
+        top: 20px;
+        right: 10px;
+    }
+
+    .arrow::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+        transform: rotate(45deg);
+        top: 15px;
+        right: 0;
+    }
+
     .gradient-text {
         background: linear-gradient(90deg, #ff00ff, #007bff);
         -webkit-background-clip: text;
@@ -455,14 +530,34 @@
     </header>
 
     <main class="text-center py-12">
-        <h1 class="text-4xl md:text-5xl font-bold">
-            Shop the Best
-            <span class="gradient-text">Styles</span> <br>
-            in One Place
-        </h1>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-2 position-relative">
+                        <div class="vector-container">
+                            <div class="vector"></div>
+                            <img src="left-decor.png" class="vector-image" alt="Left decoration">
+                        </div>
+                    </div>
+                    <div class="col-md-8 text-center">
+                        <h1 class="main-title">
+                            Shop the Best <span class="gradient-text">Styles</span> <br>
+                            in One Place
+                        </h1>
+                    </div>
+                    <div class="col-md-2 position-relative">
+                        <div class="vector-container right">
+                            <div class="vector right-bg"></div>
+                            <img src="right-decor.png" class="vector-image" alt="Right decoration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
         <!-- Image Grid -->
-        <div class="parent mt-5">
+        <div class="parent" style="margin-top: 150px;">
             <div class="div3"><img src="assets/images/anh1.jpg" alt="" style="width: 220px; height: 223px;"></div>
             <div class="div4"><img src="assets/images/anh2.jpg" alt="" style="width: 220px; height: 145px;"></div>
             <div class="div5"><img src="assets/images/anh3.jpg" alt="" style="width: 220px; height: 224px;"></div>
