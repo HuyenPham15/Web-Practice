@@ -41,7 +41,6 @@
         transform: rotate(12deg);
     }
 
-    /* Hình ảnh */
     .vector-image {
         position: relative;
         width: 90px;
@@ -153,7 +152,6 @@
         grid-row-start: 2;
     }
 
-    /* Responsive */
     @media (max-width: 1024px) {
         .parent {
             grid-template-columns: repeat(3, 1fr);
@@ -193,8 +191,8 @@
     }
 
     .hexagon {
-        width: 250px;
-        height: 280px;
+        width: 589px;
+        height: 792px;
         background-color: #f39c12;
         position: relative;
         clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -247,18 +245,18 @@
     }
 
     .testimonial-container {
+        max-width: 800px;
         margin: auto;
         text-align: center;
     }
 
     .testimonial-card {
-        background: linear-gradient(to right, #2680eb, #4a9df3);
+        background: linear-gradient(135deg, #4481eb, #04befe);
         color: white;
         padding: 40px;
         border-radius: 15px;
         position: relative;
-        font-size: 1.1rem;
-        font-weight: 500;
+        overflow: hidden;
     }
 
     .avatar {
@@ -266,28 +264,25 @@
         height: 80px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid white;
-        margin-top: -40px;
+        margin-bottom: 10px;
     }
 
     .name {
         font-size: 1.2rem;
         font-weight: bold;
-        margin-top: 10px;
     }
 
     .role {
         font-size: 0.9rem;
-        color: #dbeafe;
+        color: rgba(255, 255, 255, 0.8);
     }
 
     .quote {
         font-size: 3rem;
-        font-weight: bold;
-        opacity: 0.2;
         position: absolute;
-        bottom: 10px;
-        right: 20px;
+        top: 10px;
+        left: 20px;
+        opacity: 0.3;
     }
 
     .dots {
@@ -295,16 +290,17 @@
     }
 
     .dot {
-        width: 8px;
-        height: 8px;
-        background: #ccc;
+        height: 10px;
+        width: 10px;
+        background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
         margin: 0 5px;
+        cursor: pointer;
     }
 
     .dot.active {
-        background: #4a9df3;
+        background-color: #04befe;
     }
 
     .service-section {
@@ -584,7 +580,7 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="card border-0 shadow-sm">
                     <div class="position-relative">
-                        <img src="assets/images/pro1.png" class="card-img-top h-100" alt="Black T-shirt">
+                        <img src="assets/images/pro1.png" class="card-img-top" alt="Black T-shirt">
                         <i class="fas fa-heart position-absolute top-0 end-0 m-2 text-danger"></i>
                     </div>
                     <div class="card-body text-center">
@@ -601,7 +597,7 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="card border-0 shadow-sm">
                     <div class="position-relative">
-                        <img src="assets/images/pro2.png" class="card-img-top h-100" alt="Orange T-shirt">
+                        <img src="assets/images/pro2.png" class="card-img-top" alt="Orange T-shirt">
                         <i class="far fa-heart position-absolute top-0 end-0 m-2 text-secondary"></i>
                     </div>
                     <div class="card-body text-center">
@@ -618,7 +614,7 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="card border-0 shadow-sm">
                     <div class="position-relative">
-                        <img src="assets/images/pro3.png" class="card-img-top h-100" alt="Blue T-shirt">
+                        <img src="assets/images/pro3.png" class="card-img-top" alt="Blue T-shirt">
                         <i class="far fa-heart position-absolute top-0 end-0 m-2 text-secondary"></i>
                     </div>
                     <div class="card-body text-center">
@@ -635,7 +631,7 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="card border-0 shadow-sm">
                     <div class="position-relative">
-                        <img src="assets/images/pro4.png" class="card-img-top h-100" alt="Pink T-shirt">
+                        <img src="assets/images/pro4.png" class="card-img-top" alt="Pink T-shirt">
                         <i class="far fa-heart position-absolute top-0 end-0 m-2 text-secondary"></i>
                     </div>
                     <div class="card-body text-center">
@@ -664,20 +660,18 @@
                     <div class="me-4">
                         <button class="btn btn-outline-dark rounded-circle"><i class="fas fa-plus"></i></button>
                         <span class="ms-2">Care instructions</span>
-                        <p class="text-muted small ms-4">Machine wash at 30°C</p>
+                        <p class="text-muted small ms-5">Machine wash at 30°C</p>
                     </div>
                     <div>
                         <button class="btn btn-outline-dark rounded-circle"><i class="fas fa-plus"></i></button>
                         <span class="ms-2">Fabric material</span>
-                        <p class="text-muted small ms-4">84% cotton, 16% polyester</p>
+                        <p class="text-muted small ms-5">84% cotton, 16% polyester</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Phần hình ảnh bên phải -->
             <div class="col-md-6 text-center">
                 <div class="hexagon">
-                    <img src="your-image.jpg" alt="Fashion Model">
+                    <img src="assets/images/eco1.jpg" alt="Fashion Model">
                 </div>
             </div>
         </div>
@@ -685,55 +679,53 @@
 
     <div class="container my-5">
         <div class="row align-items-center">
-            <!-- Phần hình ảnh bên trái -->
-            <div class="col-md-6 text-center">
-                <div class="position-relative">
-                    <img src="person1.jpg" alt="Person 1" class="rounded-circle" width="180">
-                    <img src="person2.jpg" alt="Person 2" class="position-absolute top-0 end-0" width="100">
+            <!-- Cột bên trái -->
+            <div class="col-md-6 position-relative">
+                <div class="bg-gradient rounded-4 p-4">
+                    <img src="assets/images/model1.jpg" class="img-fluid rounded-circle shadow" width="150"
+                        alt="Model 1">
+                    <img src="assets/images/model2.jpg" class="position-absolute top-0 end-0 shadow rounded" width="100"
+                        alt="Model 2">
                 </div>
-                <div class="d-flex justify-content-center mt-4 gap-3">
-                    <div class="product-card">
-                        <div class="icon-box facebook"><i class="fab fa-facebook-f check-icon"></i></div>
-                        <p class="mt-2 mb-0">Legend Brown</p>
-                        <p class="text-muted small">$90.50</p>
+
+                <!-- Card sản phẩm -->
+                <div class="d-flex gap-3 mt-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fab fa-facebook text-primary"></i>
+                            <h6 class="mt-2">Legend Brown</h6>
+                            <p class="fw-bold">$90.50</p>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <div class="icon-box instagram"><i class="fab fa-instagram check-icon"></i></div>
-                        <p class="mt-2 mb-0">Black Watch</p>
-                        <p class="text-muted small">$90.50</p>
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fab fa-instagram text-danger"></i>
+                            <h6 class="mt-2">Black Watch</h6>
+                            <p class="fw-bold">$90.50</p>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <div class="icon-box amazon"><i class="fab fa-amazon check-icon"></i></div>
-                        <p class="mt-2 mb-0">Black Shoes</p>
-                        <p class="text-muted small">$90.50</p>
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fab fa-amazon text-dark"></i>
+                            <h6 class="mt-2">Black Shoes</h6>
+                            <p class="fw-bold">$90.50</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Phần nội dung bên phải -->
+            <!-- Cột bên phải -->
             <div class="col-md-6">
                 <h2 class="fw-bold">Sell everywhere</h2>
-                <p class="text-secondary">
-                    Bring your products and services to the world. Get started with selling on one channel
-                    and expand everywhere online and in person.
-                </p>
+                <p class="text-muted">Bring your products and services to the world. Get started with selling on one
+                    channel and expand everywhere online and in person.</p>
                 <ul class="list-unstyled">
-                    <li class="d-flex align-items-center mb-2">
-                        <i class="fas fa-check-circle text-primary me-2"></i> Build a new online store or connect to any
-                        website
-                    </li>
-                    <li class="d-flex align-items-center mb-2">
-                        <i class="fas fa-check-circle text-danger me-2"></i> Sell across social media platforms like
-                        Facebook, Instagram, and TikTok
-                    </li>
-                    <li class="d-flex align-items-center mb-2">
-                        <i class="fas fa-check-circle text-warning me-2"></i> Integrate with online marketplaces like
-                        Amazon, eBay, Walmart
-                    </li>
-                    <li class="d-flex align-items-center mb-2">
-                        <i class="fas fa-check-circle text-pink me-2"></i> Connect with Point-of-Sale in your physical
-                        store
-                    </li>
+                    <li><span class="dot bg-primary"></span> Build a new online store or connect to any website</li>
+                    <li><span class="dot bg-danger"></span> Sell across social media platforms like Facebook, Instagram,
+                        and TikTok</li>
+                    <li><span class="dot bg-warning"></span> Integrate with online marketplaces like Amazon, eBay,
+                        Walmart</li>
+                    <li><span class="dot bg-success"></span> Connect with Point-of-Sale in your physical store</li>
                 </ul>
             </div>
         </div>
@@ -815,23 +807,35 @@
     </div>
 
     <div class="container testimonial-container py-5">
-        <div class="testimonial-card position-relative">
-            <img src="https://s3-alpha-sig.figma.com/img/2610/82c9/2ad69240fd673a05f5fe5a5b2704500a?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Qi9y5wZPXGQ-DMux-mtI3CYz6jGKGTHATeW6sySHBy0BonmSmUjd2LS3ZNLNI8VENEZPot9ND5IvV0~lCAV-9XgOsMgqpkD~I4K~Ov~qT-dz7Ij703fS~zsNtI3MWW9l0l-3EOnaTvywI6mHFYBtmx-X2niP9zj2MAhLIgCQMl6rkxafI5zJp~MyRJTrzOcyuPXMgepOgZypAQDcMfqjCuZBeZvhITHXmLHPpvyvKainGqeQd6rTegdO0yh~p~xXukd2AYljySzq0fnw-m6tFmLpsdpxpAsvK8Df72w1AWzfYrpMfLfyxGotgONpRndu1v8DfXsAwIt14Tmy~PRe2Q__"
-                alt="Mitchell Marsh" class="avatar">
-            <div class="name">Mitchell Marsh</div>
-            <div class="role">UI/UX Designer</div>
-            <p class="mt-3">
-                Internal stakeholders were happy with the final product. The team was able to
-                communicate their progress clearly and concisely. They took the initiative and
-                executed the project without much supervision.
-            </p>
-            <div class="quote">“</div>
-        </div>
-        <div class="dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="testimonial-card">
+                        <img src="https://via.placeholder.com/80" alt="Mitchell Marsh" class="avatar">
+                        <div class="name">Mitchell Marsh</div>
+                        <div class="role">UI/UX Designer</div>
+                        <p class="mt-3">
+                            Internal stakeholders were happy with the final product. The team was able to
+                            communicate their progress clearly and concisely.
+                        </p>
+                        <div class="quote">“</div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="testimonial-card">
+                        <img src="https://via.placeholder.com/80" alt="Sarah Johnson" class="avatar">
+                        <div class="name">Sarah Johnson</div>
+                        <div class="role">Product Manager</div>
+                        <p class="mt-3">
+                            The product exceeded expectations, and the team was highly professional throughout the
+                            process.
+                        </p>
+                        <div class="quote">“</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -881,76 +885,90 @@
         <p>No credit card required – pay when you're ready.</p>
     </div>
 
-    <footer class="footer">
+    <footer class="bg-light text-dark py-5">
         <div class="container">
-            <div class="row flex-row-reverse">
-                <!-- Cột Logo & Giới thiệu -->
-                <div class="col-md-3 ">
-                    <h5><img src="logo.png" alt="Logo" height="24"> MicPro</h5>
-                    <p class="text-muted">The new allocation will help expand response to cover those.</p>
+            <div class="row">
+                <!-- Logo + Mô tả -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold"><i class="fas fa-bolt text-primary"></i> MicPro</h5>
+                    <p class="small text-muted">The new allocation will help expand response to cover those.</p>
                 </div>
 
-                <!-- Cột Liên kết -->
+                <!-- Cột 1: Sell Online -->
                 <div class="col-md-2">
-                    <h5>Sell Online</h5>
-                    <a href="#">Sell Everywhere</a><br>
-                    <a href="#">Sell on website</a><br>
-                    <a href="#">Sell on Instagram</a><br>
-                    <a href="#">Sell on Amazon</a><br>
-                    <a href="#">Sell on mobile</a>
+                    <h6 class="fw-bold">Sell Online</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Sell Everywhere</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Sell on Website</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Sell on Instagram</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Sell on Amazon</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Sell on Mobile</a></li>
+                    </ul>
                 </div>
+
+                <!-- Cột 2: Business Solutions -->
                 <div class="col-md-2">
-                    <h5>Business Solutions</h5>
-                    <a href="#">Entrepreneurs</a><br>
-                    <a href="#">Drop shipping</a><br>
-                    <a href="#">Wholesale</a><br>
-                    <a href="#">Local Business</a><br>
-                    <a href="#">Fashion</a>
+                    <h6 class="fw-bold">Business Solutions</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Entrepreneurs</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Drop Shipping</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Wholesale</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Local Business</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Fashion</a></li>
+                    </ul>
                 </div>
+
+                <!-- Cột 3: Technology -->
                 <div class="col-md-2">
-                    <h5>Technology</h5>
-                    <a href="#">CMS</a><br>
-                    <a href="#">WordPress</a><br>
-                    <a href="#">Drupal</a><br>
-                    <a href="#">Joomla</a>
+                    <h6 class="fw-bold">Technology</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">CMS</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">WordPress</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Drupal</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Joomla</a></li>
+                    </ul>
                 </div>
+
+                <!-- Cột 4: Resources -->
                 <div class="col-md-2">
-                    <h5>Resources</h5>
-                    <a href="#">Help Center</a><br>
-                    <a href="#">Podcast</a><br>
-                    <a href="#">Blog</a><br>
-                    <a href="#">Guides</a><br>
-                    <a href="#">Glossary</a>
+                    <h6 class="fw-bold">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Help Center</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Podcast</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Guides</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Glossary</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Product Sell</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row mt-4">
-                <!-- Form Subscribe -->
+            <!-- Form đăng ký & Mạng xã hội -->
+            <div class="row mt-4 d-flex">
                 <div class="col-md-6">
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Email Address">
-                        <button type="submit">Subscribe</button>
+                    <form class="d-flex ">
+                        <input type="email" class="form-control w-50" placeholder="Email Address">
+                        <button type="submit" class="btn btn-primary ms-2">Subscribe</button>
                     </form>
                 </div>
-
-                <!-- Social Media + App Store -->
-                <div class="col-md-6 text-md-end">
-                    <div class="social-icons">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-google"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                <div class="col-md-6 ms-auto">
+                    <div class="socal">
+                        <a href="#" class="text-muted mx-2"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-muted mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-muted mx-2"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
-                    <div class="app-links mt-2">
-                        <a href="#"><img src="google-play.png" alt="Google Play"></a>
-                        <a href="#"><img src="app-store.png" alt="App Store"></a>
+                    <div class="app mt-2">
+                        <a href="#"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                width="120"></a>
+                        <a href="#"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Apple_App_Store_badge.svg"
+                                width="120"></a>
                     </div>
                 </div>
             </div>
-
-            <!-- Dòng bản quyền -->
-            <div class="footer-bottom">
-                © 2021 Besnik.com | All Rights Reserved
+            <div class="row text-center mt-4">
+                <p class="text-muted mt-3 small">&copy; 2024 Besnik.com | All Rights Reserved</p>
             </div>
         </div>
     </footer>
